@@ -3,9 +3,9 @@
 *This is the project group for the OOSE assignment.
 Project members :* 
 
-1.     Shaunak Mukherjee (shaunakmukherjee)
-2.     Chi Young Shin    (tlscldud)
-3.     Rohit Ravoori     (rohitravoori)
+1.     Chi Young Shin    (tlscldud)
+2.     Rohit Ravoori     (rohitravoori)
+3.     Shaunak Mukherjee (shaunakmukherjee)
 
 ## ITERATION 1
 
