@@ -5,6 +5,7 @@ Project members :
 
 Sl No. Name              (GitHub username)
 1.     Shaunak Mukherjee (shaunakmukherjee)
-2.     Ankur Gupta       (ankurgupta7)
-3.     Chi Young Shin    (tlscldud)
-4.     Rohit Ravoori     (rohitravoori)
+2.     Chi Young Shin    (tlscldud)
+3.     Rohit Ravoori     (rohitravoori)
+
+
