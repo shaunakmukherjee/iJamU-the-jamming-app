@@ -62,9 +62,9 @@
 
 1.	User visits login page.
 2.	User enters email id and password
-    2.1. Email id does not exist. Prompt user to sign up.
-    2.2. Email id and password don’t match. Prompt user to retry login.
-      2.2.1. User clicks on forget password. Email is sent to the user to reset password.
+    - Email id does not exist. Prompt user to sign up.
+    - Email id and password don’t match. Prompt user to retry login.
+        - User clicks on forget password. Email is sent to the user to reset password.
 3.	User’s customized dashboard opens up.
 
 **User sets up/updates his profile**
@@ -81,38 +81,38 @@
 3.	The system returns a set of profiles relevant to the search filled in by the user using the recommendation system.
 4.	User clicks on the connect button with prospective bandmates.
 
-** User shows interest in playing for a band**
+**User shows interest in playing for a band**
 
 1.	User logs in.
 2.	User’s profile is marked as available.
 3.	User’s profile will be returned as part of the results when the profile is relevant to search using the recommendation.
 4.	User will receive a request to connect.
-    4.1.	User accepts the connection. 
-    4.2.	User ignores the connection.
+    - User accepts the connection. 
+    - User ignores the connection.
 
 **Messenger**
 
 1.	User logs in.
 2.	User 1 checks for a connection with User 2.
-    2.1.	A connection exists and a message option is present. Go to step 2.
-    2.2.	A connection does not exist. Request a connection and wait to connect.
+    - A connection exists and a message option is present. Go to step 2.
+    - A connection does not exist. Request a connection and wait to connect.
 3.	User 1 clicks on the message button next to User 2’s profile.
 4.	User 1 types up a message and hits the send button. 
 5.	The system delivers the message to User 2 the next time he logs in.
 6.	User 2 receives the message.
-    6.1.	User 2 replies by writing a message and clicking on the reply button.
-    6.2.	User 2 ignores the message and the message cycle ends.
+    - User 2 replies by writing a message and clicking on the reply button.
+    - User 2 ignores the message and the message cycle ends.
 7.	System delivers the message to user 1 the next time he logs in.
 8.	User 1 receives a message.
-    8.1.	 User 1 responds, looping back to step 4.
-    8.2.	 User 1 ignores the message and the message cycle ends.
+    - User 1 responds, looping back to step 4.
+    - User 1 ignores the message and the message cycle ends.
 
 **Endorsing a jammer’s profile**
 
 1.	User logs in.
 2.	User clicks on connections tab.
 3.	User 1 visits User 2’s profile.
-    3.1.	User 1 chooses to endorse the user 2’s profile.
+    - User 1 chooses to endorse the user 2’s profile.
 4.	The system reflects the endorsement on User’s 2 profile.
 5.	The system recalculates user 2’s ratings and updates it using the recommendation system.
 
