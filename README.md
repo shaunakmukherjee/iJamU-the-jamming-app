@@ -15,5 +15,15 @@ Project members :*
 ### Features List
 (copy the edited features list onto here)
 
+### User Interface
+
+### Domain Model
+
+### UML Activity Diagram
+
+### Use Cases
+
+### System Architecture
+
 
 
