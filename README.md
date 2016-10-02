@@ -34,9 +34,9 @@ Project members :*
 - Recommendations
       - User can recommend (write review) a musician
 - Current **technical level/skill** of the user will be determined by an algorithm based on :
-        - User's original technical level (beginner/amateur/professional/expert)
-        - Endorser's current level
-        - No. of previous collaborations
+      - User's original technical level (beginner/amateur/professional/expert)
+      - Endorser's current level
+      - No. of previous collaborations
 
 
 
