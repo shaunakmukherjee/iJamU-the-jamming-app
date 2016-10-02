@@ -1,4 +1,4 @@
-# 2016-group-18
+# 2016-group-18 - JAMMING APP
 
 *This is the project group for the OOSE assignment.
 Project members :* 
