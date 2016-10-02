@@ -43,6 +43,7 @@ Project members :*
 ### User Interface
 
 ### Domain Model
+![Class Diagram](https://www.gliffy.com/go/publish/image/11227061/L.png)
 
 ### UML Activity Diagram
 
