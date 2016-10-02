@@ -1,7 +1,6 @@
 # 2016-group-18 - JAMMING APP
 
-*This is the project group for the OOSE assignment.
-Project members :* 
+*Project members :* 
 
 1.     Chi Young Shin    (tlscldud)
 2.     Rohit Ravoori     (rohitravoori)
@@ -42,15 +41,112 @@ Project members :*
 
 ### User Interface
 
-### Domain Model
-![Domain Model] (https://www.gliffy.com/go/publish/image/11227061/L.png)
-
 ### UML Activity Diagram
 ![Activity Diagram] (https://www.gliffy.com/go/publish/image/11225211/L.png)
 
+### Domain Model
+![Domain Model] (https://www.gliffy.com/go/publish/image/11227061/L.png)
+
 ### Use Cases
 
+**User Sign Up**
+
+1. User visits the sign up page.
+2. User enters an email id.
+    - Email id already exists. User asked to login.
+    - Email id is unique and user continues with step 3.
+3. User fills in username and password.
+4. User gets a sign up confirmation and asked to login.
+
+**User Login**
+
+1.	User visits login page.
+2.	User enters email id and password
+    2.1. Email id does not exist. Prompt user to sign up.
+    2.2. Email id and password don’t match. Prompt user to retry login.
+      2.2.1. User clicks on forget password. Email is sent to the user to reset password.
+3.	User’s customized dashboard opens up.
+
+**User sets up/updates his profile**
+
+1.	User logs in.
+2.	User clicks on profile tab.
+3.	User fills in his profile details.
+4.	User gets a confirmation of the update to his profile.
+
+**User sets up a search for band members**
+
+1.	User logs in.
+2.	User sets the genre, instrument, technical level and distance for the search.
+3.	The system returns a set of profiles relevant to the search filled in by the user using the recommendation system.
+4.	User clicks on the connect button with prospective bandmates.
+
+** User shows interest in playing for a band**
+
+1.	User logs in.
+2.	User’s profile is marked as available.
+3.	User’s profile will be returned as part of the results when the profile is relevant to search using the recommendation.
+4.	User will receive a request to connect.
+    4.1.	User accepts the connection. 
+    4.2.	User ignores the connection.
+
+**Messenger**
+
+1.	User logs in.
+2.	User 1 checks for a connection with User 2.
+    2.1.	A connection exists and a message option is present. Go to step 2.
+    2.2.	A connection does not exist. Request a connection and wait to connect.
+3.	User 1 clicks on the message button next to User 2’s profile.
+4.	User 1 types up a message and hits the send button. 
+5.	The system delivers the message to User 2 the next time he logs in.
+6.	User 2 receives the message.
+    6.1.	User 2 replies by writing a message and clicking on the reply button.
+    6.2.	User 2 ignores the message and the message cycle ends.
+7.	System delivers the message to user 1 the next time he logs in.
+8.	User 1 receives a message.
+    8.1.	 User 1 responds, looping back to step 4.
+    8.2.	 User 1 ignores the message and the message cycle ends.
+
+**Endorsing a jammer’s profile**
+
+1.	User logs in.
+2.	User clicks on connections tab.
+3.	User 1 visits User 2’s profile.
+    3.1.	User 1 chooses to endorse the user 2’s profile.
+4.	The system reflects the endorsement on User’s 2 profile.
+5.	The system recalculates user 2’s ratings and updates it using the recommendation system.
+
+**Rating a jammer’s profile**
+
+1.	User logs in.
+2.	User clicks on the connections tab.
+3.	User 1 visits User 2’s profile
+4.	User 1 chooses the skill to rate or update.
+5.	The system updates the ratings of user 2 using the recommendation system.
+
+
+
 ### System Architecture
+
+The system will use a MySQL database at the server side to store details and preferences of each user. Each user will connect to the server to use the jamming application. The messenger application will make use of TCP along with a MySQL database to exchange messages and to store the messages. 
+
+The system will be divided into these major packages –
+
+- The RecommendationSys package will contain the complex algorithm which is responsible for calculating the skills of the user and the overall level of the user along with handling endorsements and returning the results for the queries.
+- The MessengerSys package will contain the code that handles the communication between 2 users and will be responsible for the TCP and database implementation.
+- The UserSys package will contain the controller along with the code to maintain the user’s profiles in the database. This includes the signup and login classes.
+- The View package will contain the code for our front end and will run on the client side. This package will interact with the UserSys package.
+
+### References
+
+We plan to use the following software and repositories/libraries for the project : 
+
+- Python and Django
+- SocketServer Library
+- Python RecSys Library
+- MySQL
+ 
+ 
 
 
 
