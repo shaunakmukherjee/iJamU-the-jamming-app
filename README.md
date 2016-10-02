@@ -26,7 +26,9 @@
 - User can indicate interest on a jammer
       - Accept
       - Reject
-- Chat service between connected users
+- Connections
+      - User can manage his/her connections
+- Chat service between connected users (Messenger)
       - Basically, a messenger system to connect users who've "liked" each other
 - Endorsements
       - Users can endorse a jammer's profile, or his/her skill in a particular instrument/genre/vocals
@@ -90,7 +92,7 @@
     - User accepts the connection. 
     - User ignores the connection.
 
-**Messenger**
+**Messenger (inside "Connections" tab)**
 
 1.	User logs in.
 2.	User 1 checks for a connection with User 2.
