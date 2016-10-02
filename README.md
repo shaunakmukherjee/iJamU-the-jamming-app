@@ -43,9 +43,10 @@ Project members :*
 ### User Interface
 
 ### Domain Model
-![Class Diagram](https://www.gliffy.com/go/publish/image/11227061/L.png)
+![Domain Model] (https://www.gliffy.com/go/publish/image/11227061/L.png)
 
 ### UML Activity Diagram
+![Activity Diagram] (https://www.gliffy.com/go/publish/image/11225211/L.png)
 
 ### Use Cases
 
