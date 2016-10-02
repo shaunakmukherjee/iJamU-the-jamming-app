@@ -65,7 +65,7 @@
     - Email id does not exist. Prompt user to sign up.
     - Email id and password don’t match. Prompt user to retry login.
         - User clicks on forget password. Email is sent to the user to reset password.
-3.	User’s customized dashboard opens up.
+3.	User’s customized main page opens up.
 
 **User sets up/updates his profile**
 
@@ -137,7 +137,7 @@ The system will be divided into these major packages –
 - The UserSys package will contain the controller along with the code to maintain the user’s profiles in the database. This includes the signup and login classes.
 - The View package will contain the code for our front end and will run on the client side. This package will interact with the UserSys package.
 
-### References
+### Resources
 
 We plan to use the following software and repositories/libraries for the project : 
 
