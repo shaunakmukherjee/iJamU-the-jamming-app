@@ -44,7 +44,11 @@
 ### User Interface
 
 ### UML Activity Diagram
-![Activity Diagram] (https://www.gliffy.com/go/publish/image/11225211/L.png)
+![Activity Diagram] (file:///Users/chiyoungshin/Desktop/Login.jpg)
+![Activity Diagram] (file:///Users/chiyoungshin/Desktop/Sign_Up.jpg)
+![Activity Diagram] (file:///Users/chiyoungshin/Desktop/Profile.jpg)
+![Activity Diagram] (file:///Users/chiyoungshin/Desktop/Search.jpg)
+![Activity Diagram] (file:///Users/chiyoungshin/Desktop/Main_Page.jpg)
 
 ### Domain Model
 ![Domain Model] (https://www.gliffy.com/go/publish/image/11227061/L.png)
