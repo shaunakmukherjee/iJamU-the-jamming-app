@@ -42,13 +42,13 @@
 
 
 ### User Interface
+![Login Page] (file:///Users/chiyoungshin/Desktop/Login.jpg)
+![Sign Up Page] (file:///Users/chiyoungshin/Desktop/Sign_Up.jpg)
+![Profile Page] (file:///Users/chiyoungshin/Desktop/Profile.jpg)
+![Search Page] (file:///Users/chiyoungshin/Desktop/Search.jpg)
+![Connections Page] (file:///Users/chiyoungshin/Desktop/Main_Page.jpg)
 
 ### UML Activity Diagram
-![Activity Diagram] (file:///Users/chiyoungshin/Desktop/Login.jpg)
-![Activity Diagram] (file:///Users/chiyoungshin/Desktop/Sign_Up.jpg)
-![Activity Diagram] (file:///Users/chiyoungshin/Desktop/Profile.jpg)
-![Activity Diagram] (file:///Users/chiyoungshin/Desktop/Search.jpg)
-![Activity Diagram] (file:///Users/chiyoungshin/Desktop/Main_Page.jpg)
 
 ### Domain Model
 ![Domain Model] (https://www.gliffy.com/go/publish/image/11227061/L.png)
