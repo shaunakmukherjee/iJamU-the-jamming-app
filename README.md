@@ -42,15 +42,35 @@
 
 
 ### User Interface
-![Login Page] (file:///Users/chiyoungshin/Desktop/Login.jpg)
-![Sign Up Page] (file:///Users/chiyoungshin/Desktop/Sign_Up.jpg)
-![Profile Page] (file:///Users/chiyoungshin/Desktop/Profile.jpg)
-![Search Page] (file:///Users/chiyoungshin/Desktop/Search.jpg)
-![Connections Page] (file:///Users/chiyoungshin/Desktop/Main_Page.jpg)
+
+LOGIN 
+
+![signup](https://cloud.githubusercontent.com/assets/22137960/19027247/7c142d48-88fc-11e6-997f-c72e969404ab.jpg)
+
+SIGNUP (New User)
+
+![signup_2](https://cloud.githubusercontent.com/assets/22137960/19027248/7c15692e-88fc-11e6-9ccb-fadfb3260a8d.jpg)
+
+PROFILE (MAIN PAGE)
+
+![profile](https://cloud.githubusercontent.com/assets/22137960/19027244/7c1181b0-88fc-11e6-9782-eb90bc0a8f50.jpg)
+
+SEARCH 
+
+![search](https://cloud.githubusercontent.com/assets/22137960/19027246/7c1342ca-88fc-11e6-938e-2851d267eac0.jpg)
+
+CONNECTIONS 
+
+![connections](https://cloud.githubusercontent.com/assets/22137960/19027245/7c1236c8-88fc-11e6-8771-2c8a99460297.jpg)
+
+
 
 ### UML Activity Diagram
 
+![Activity Diagram] (https://www.gliffy.com/go/publish/image/11225211/L.png)
+
 ### Domain Model
+
 ![Domain Model] (https://www.gliffy.com/go/publish/image/11227061/L.png)
 
 ### Use Cases
