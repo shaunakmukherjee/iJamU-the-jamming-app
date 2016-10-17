@@ -15,7 +15,7 @@
 
 >Once a user decides on a musician to collaborate with, he is able to send a request for a connection that will enable the users to communicate with each other through a direct messaging application. Users will have the ability to reject or accept a connection and will also have the ability to endorse fellow musicians that they have connected with following a successful collaboration. The number of endorsements and the ratings you receive in these endorsements will be integral in improving your profile which will enable you to connect with more active and prominent musicians by enhancing your visibility to other users.
 
-### Features List
+### Features List: (Updated)
 - New users can __sign up__ and make an account
     - Required fields (Email ID, password, User name)
 - New users will be designated as 'new members' until users receives a certain number of endorements *Add to UI Diagram*
@@ -43,7 +43,7 @@
       - number of endorsements received
 - User can build his profile (increase rating, technical level) through receiving endorsements
 
-### Extended Features
+### Extended Features:
 - Retrieve current location of user or user designated address in search instead of address
 - Users can view a list of endorsements showing ratings and comment of a searched or connected user
 - Multiple endorsements to the same user using a time limit between endorsements
@@ -54,6 +54,7 @@
 - Algorithm on technical level calculation that takes into account the rating/technical level of endorser
 - Use time instead of finite number of endorsements to calculate current technical level and (?)rating
 - Factor number of connections in ratings
+- A detailed "LEVEL-UP" plan has also been brainstormed, as to how the user can **level up** from one TL to another (or a separate level system with achievements and challenges) after accumulating a certain number of points, based on previous collaborations, ratings obtained, etc.
 
 ### User Interface
 
