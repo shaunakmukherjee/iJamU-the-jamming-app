@@ -77,6 +77,10 @@ CONNECTIONS
 
 ![Domain Model] (https://www.gliffy.com/go/publish/image/11227061/L.png)
 
+### Class Diagram
+
+![class_diag](https://www.gliffy.com/go/share/image/slmn4b13fqnrp5ingx4l.png?utm_medium=live-embed&utm_source=custom)
+
 ### Use Cases
 
 **User Sign Up**
