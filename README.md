@@ -81,6 +81,53 @@ CONNECTIONS
 
 ![class_diag](https://www.gliffy.com/go/share/image/slmn4b13fqnrp5ingx4l.png?utm_medium=live-embed&utm_source=custom)
 
+### Basic Algorithm for Ranking Search Results
+
+The user will first indicate search criteria : **genres, instruments**, etc. Then, the user indicates boundaries to limit the search in :
+ 1. Minimum technical level 
+ 2. Minimum years of experience 
+ 3. Minimum no. of previous endorsements 
+ 4. Distance from user 
+
+_Key variables :_
+- Technical Level = tl 
+- Years of experience = n_y
+- No. of endorsements = n_e
+- Distance away from user = d
+- Technical rating = r
+- Technical rating = r_o
+
+_Points to be noted :_
+- The user might not choose to fill the boundaries; however, the search will be broader, and hence, less accurate.
+- There will be two types of ratings that can be given to users through endorsements: 'r' for the technical rating, and 'r_o' for the overall rating, _ that factor the user's personality, punctuality, collaboration experience etc._
+
+**_Calculation of technical level:_**
+
+`TL = (r_1 + r_2 + ...... + r_m)/ m ` for the first 'm' endorsements.
+
+_'m' is the constant number of ratings (say, =20) that will be taken into account when calculating the user's technical and overall rating, "r_i" being the rating given (out of 5) in the 'i'th endorsement received by the user. Essentially, the TL can be calculated as (r_1 + r_2 + .... r_20)/20 for the first 20 endorsements, and then it can be (r_2 + r_3 + .... r_21)/20 then (r_3 + r_3 + .... r_22)/20 once the user receives more than 'm' (20) endorsements, and so on. this enables the user's technical level to stay current and relevant._
+
+_For new users who have yet to receive 'm' endorsements, the TL will still be calculated with 'm' endorsements. During such time until the user reaches 'm' endorsements, the user will be designated as a 'new member' whose TL has yet to reflect the user's true technical level. This system is implemented to encourage users to connect and collaborate with fellow users to receive endorsements. Every user begins as a 'new member' and subsequently builds his/her profile to connect with user's with higher technical levels and ratings. The 'TL' will be out of 5._
+
+- 0-1 : Newbie
+- 1-2 : Beginner
+- 2-3 : Amateur
+- 3-4 : Professional
+- 4-5 : Expert. 
+
+**_Optimization of Search:_**
+
+Profile are shown in order of rank based on : 
+ 1. Retrieve tl, n_y, n_e, r, d from the search criteria and user's technical profile.
+ 2. Calculate final rating 'R' as : 
+
+`R = { n_y + n_e + (tl*f1) + (r_o*f2) }/ (40 + f1 + f2)`
+
+_f1 = factor of multiplying technical level, f2 = factor of multiplying overall rating_
+
+_The number of years of experience, and the no. of endorsements are set to a maximum of 20, and hence the weighted sum is calculated as (40 + f1 + f2). The factors f1 > f2 are used as the technical rating should factor slightly more than the overall when it comes to ranking._
+
+The Rating calculated by us (R), will show up alongside the distance parameter (d), which will then give the user a perfect trio to judge his/her best possible match! The distance parameter was not included in the ranking equation, as it's prudent that for the sake of music, the better person should be found irrespective of how far he/she is! User's lacking the ability to travel far may reduce the max distance boundary when searching.
 ### Use Cases
 
 **User Sign Up**
