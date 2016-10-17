@@ -78,8 +78,6 @@ CONNECTIONS
 
 ![connections](https://cloud.githubusercontent.com/assets/22137960/19027245/7c1236c8-88fc-11e6-8771-2c8a99460297.jpg)
 
-
-
 ### UML Activity Diagram
 
 ![Activity Diagram] (https://www.gliffy.com/go/publish/image/11225211/L.png)
