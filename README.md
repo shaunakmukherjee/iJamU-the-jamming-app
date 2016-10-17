@@ -10,6 +10,7 @@
 
 ### Vision Statement
 >We will be attempting to build a service that will allow musicians to interact, collaborate and basically, produce music together. The whole concept of 'jamming' will be redefined, as users will be given the opportunity to view profiles of musicians in their area - who play different instruments (guitar, drums, keyboards,etc.), with varying skills in different genres - and connect with them to produce music together. Our app will enable users to either search for other musicians for a gig; search for bands to join; or simply look for like-minded individuals to play some music, relax and socialize through 'jamming'. 
+
 >The user will be able to search for other musicians based on instruments, genres, technical level, and years of experience. Our ranking algorithm will take in to account various factors such as number of previous collaborations, technical level, user ratings and proximty to offer you the best people to connect with for you! The algorithm first calculates the user's technical level, and correlates that with previously obtained ratings, to rank and sort the musicians that best fit your preferences. The app, once developed, would be launched in an on-campus geography initially, and will cover almost all bases when it comes to genres and/or instruments played.
 
 ### Features List
