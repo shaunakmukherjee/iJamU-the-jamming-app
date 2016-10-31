@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<title> iJamU | We create musicians </title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+<style>
+input[type=button] {
+    background-color: #8080FF;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+.wrapper {
+    text-align: center;
+}
+
+.input {
+    position: absolute;
+    top: 50%;
+}
+</style>
+
+<div ng-app="">
+ 
+<p style="text-align:center"><input type="text" ng-model="name" placeholder="And you are...?"></p>
+<h1 style="text-align:center;">Welcome to iJamU, {{name}}!</h1>
+</p>
+</div>
+<div class="wrapper">			
+<form action="Login.html">
+    <input type="submit" style="text-align:center" value="LET'S GO!" />
+</form>	
+</div>
+</body>
+</html>
