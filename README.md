@@ -201,6 +201,7 @@ The system will be divided into these major packages:
 - The **UserSys** package will contain the controller along with the code to maintain the user’s profiles in the database. This includes the signup and login classes.
 - The **Template** package will contain the code for our front end and will run on the client side. This package will interact with the **UserSys** package.
 
+
 We plan to use:
 -	Python and Django
 -	HTML, CSS and JavaScript
