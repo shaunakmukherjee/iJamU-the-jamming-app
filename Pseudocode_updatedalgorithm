@@ -1,0 +1,37 @@
+Require :  technical_level, numberof_years, numberof_endorsements, overall_rating, technical_rating,
+
+BEGIN PROCEDURE Calculate_TL (technical_level, rating[numberof_endorsements])
+
+technical_level = 0 //initially
+
+m = 20 // taken initially
+if(numberof_endorsements <m)
+	start loop i from 1 to numberof_endorsements
+		sum += (rating[i+]) 
+	end loop
+	technical_level=sum/numberof_endorsements
+end if
+else 
+	start loop i from (numberof_endorsements-m+1) to numberof_endorsements
+		sum += (rating[i+]) 
+	end loop
+	technical_level=sum/numberof_endorsements
+end if
+return technical_level
+END PROCEDURE
+
+BEGIN PROCEDURE Calculate_Rating(technical_level, overall_rating, numberof_years, numberof_endorsements, i)
+
+//i denotes the i'th user who rates him
+
+integer f1, f2 // multiplying factors
+Factor1 = technical_level * f1
+Factor2 = overall_rating * f2
+
+R = (numberof_years + numberof_endorsements + Factor1 + Factor2) / (40 + f1 + f2)
+
+R=rating[i] // put the rating inside the array
+
+END PROCEDURE Calculate_Rating
+
+The results will show up based on the Rating[i], and the distance d.
