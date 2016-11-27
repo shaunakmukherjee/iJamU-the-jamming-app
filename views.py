@@ -1,58 +1,51 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework.renderers import JSONRenderer
-from rest_framework.parsers import JSONParser
-from snippets.models import Snippet
-from snippets.serializers import SnippetSerializer
-
-class JSONResponse(HttpResponse):
-  
-    def __init__(self, data, **kwargs):
-        content = JSONRenderer().render(data)
-        kwargs['content_type'] = 'application/json'
-        super(JSONResponse, self).__init__(content, **kwargs)
-
-def snippet_list(request):
-    """
-    List all code snippets, or create a new snippet.
-    """
-    if request.method == 'GET':
-        snippets = Snippet.objects.all()
-        serializer = SnippetSerializer(snippets, many=True)
-        return JSONResponse(serializer.data)
-
-    elif request.method == 'POST':
-        data = JSONParser().parse(request)
-        serializer = SnippetSerializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return JSONResponse(serializer.data, status=201)
-        return JSONResponse(serializer.errors, status=400)    
-def snippet_detail(request, pk):
-    """
-    Retrieve, update or delete a code snippet.
-    """
-    try:
-        snippet = Snippet.objects.get(pk=pk)
-    except Snippet.DoesNotExist:
-        return HttpResponse(status=404)
-
-    if request.method == 'GET':
-        serializer = SnippetSerializer(snippet)
-        return JSONResponse(serializer.data)
-
-    elif request.method == 'PUT':
-        data = JSONParser().parse(request)
-        serializer = SnippetSerializer(snippet, data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return JSONResponse(serializer.data)
-        return JSONResponse(serializer.errors, status=400)
-
-    elif request.method == 'DELETE':
-        snippet.delete()
-        return HttpResponse(status=204)
-
+from .models import Userdetails,Search
+from django.utils import timezone
+from django.shortcuts import render, get_object_or_404
+from .forms import PostForm, SearchForm
+from django.shortcuts import redirect
 
 # Create your views here.
+
+def post_detail(request, pk):
+    post = get_object_or_404(Userdetails, pk=pk)
+    return render(request, 'iter/post_details.html', {'post': post})
+
+def usr_detail(request, pk):
+    post = Userdetails.objects.filter(Rating__gte=5).order_by('Rating')
+    return render(request, 'iter/post_details.html', {'post': post})
+
+def post_new(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=True)
+            return redirect('post_detail', pk=post.pk)
+    else:
+        form = PostForm()
+    return render(request, 'iter/post_edit.html', {'form': form})
+
+
+def gsearch(request):
+    if request.method == "POST":
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=True)
+            if post.Instruments=="Drums":
+                return redirect('drum/')
+            else :
+                return redirect('post_detail', 1)
+    else:
+        form = SearchForm()
+    return render(request, 'iter/search.html', {'form': form})
+
+
+
+def usr_list(request):
+    userdetail= Userdetails.objects.filter(Rating__gte=5).order_by('Rating')
+    return render(request, 'iter/post_list.html', {'userdetail':userdetail})
+
+def Drums_list(request):
+    userdetail= Userdetails.objects.filter(Instruments__icontains="hello").order_by('Rating')
+    return render(request, 'iter/post_list.html', {'userdetail':userdetail})
+
