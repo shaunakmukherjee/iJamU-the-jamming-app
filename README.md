@@ -6,7 +6,32 @@
 2.     Rohit Ravoori     (rohitravoori)
 3.     Shaunak Mukherjee (shaunakmukherjee)
 
-### Vision Statement/Overview (Updated)
+### Contents
+
+1. Master
+2. Frontend-Main (check the branch for details)
+3. Testcases
+
+
+### Details of work accomplished
+
+The Master file here contains the complete buildable code for the app, which consists of the entire back-end functionality. 
+Running it will show the : 
+
+1. "Profile" page which, as of now, shows the bereft details of a couple of users.
+2. "Search" page where we search for the best match. The pseudocode of the updated algorithm is enclosed, which will be enclosed with the backend in the next iterations.
+3. Django has an in-built messaging app which will be used for messaging the already-made connections.
+4. Full database functionality through DBLite.
+
+The frontend-main branch contains the code for the frontend, which contains all the Python codes for two modules : Login and Dashboard, both of which use Django's authentication framework. The screenshots have also been attached for the graders' benefit. Also, since it cannot be "tested" per se, it has been included in another branch.
+
+The frontend is exectuable in a stand-alone manner, but remains to be integrated with the backend to make the complete app.
+
+Also, test cases have been written for the backend, gauging over quite a progressive coverage.
+
+The Aux contains all the auxiliary, previous files used in the iterations preceding this. They've been kept for the sake of coverage.
+
+### Vision Statement/Overview
 >We will be attempting to build a service that will allow musicians to interact, collaborate and basically, produce music together. The whole concept of 'jamming' will be redefined, as users will be given the opportunity to view profiles of musicians in their area - who play different instruments (guitar, drums, keyboards, etc.), with varying skills in different genres - and connect with them to produce music together. Our app will enable users to either search for other musicians for a gig; search for bands to join; or simply look for like-minded individuals to play some music, relax and socialize through 'jamming'.
 
 >The user will be able to search for other musicians based on instruments, genres, technical level, and years of experience. Our ranking algorithm will take in to account various factors such as number of previous collaborations, technical level, user ratings and proximity to offer you the best people to connect with for you! This non-trivial algorithm first calculates the user's technical level, and correlates that with previously obtained ratings, to rank and sort the musicians in your search results to conveniently recommend the best people to connect with.
@@ -14,7 +39,7 @@
 >Once a user decides on a musician to collaborate with, he is able to send a request for a connection that will enable the users to communicate with each other through a direct messaging application. Users will have the ability to reject or accept a connection and will also have the ability to endorse fellow musicians that they have connected with following a successful collaboration. The number of endorsements and the ratings you receive in these endorsements will be integral in improving your profile which will enable you to connect with more active and prominent musicians by enhancing your visibility to other users.
 
 
-### Features List: (Updated)
+### Features List:
 - New users can __sign up__ and make an account
     - Required fields (Email ID, password, User name)
 - New users will be designated as __'new members'__ until users receives a certain number of endorsements
@@ -56,6 +81,7 @@
 - A detailed "LEVEL-UP" plan has also been brainstormed, as to how the user can **level up** from one TL to another (or a separate level system with achievements and challenges) after accumulating a certain number of points, based on previous collaborations, ratings obtained, etc.
 - Also, the extended feature of the Google Maps is going to be incorporated, so as to achieve geographical functionality.
 
+
 ### User Interface
 
 LOGIN 
@@ -78,13 +104,16 @@ CONNECTIONS
 
 ![connections](https://cloud.githubusercontent.com/assets/22137960/19027245/7c1236c8-88fc-11e6-8771-2c8a99460297.jpg)
 
+
 ### Class Diagram (Updated)
 
 ![class_diag](https://www.gliffy.com/go/share/image/slmn4b13fqnrp5ingx4l.png?utm_medium=live-embed&utm_source=custom)
 
+
 ### UML Activity Diagram
 
 ![Activity Diagram] (https://www.gliffy.com/go/publish/image/11225211/L.png)
+
 
 ### Basic Algorithm for Ranking Search Results
 
@@ -124,6 +153,7 @@ For new users who have yet to receive **'m'** endorsements, the TL will still be
 
 Same as technical rating (for now)
 
+
 **_Optimization of Search:_**
 
 Profile are shown in order of rank based on : 
@@ -148,8 +178,6 @@ The Rating calculated by us (R), will show up alongside the distance parameter (
      - 2.3 Email id is unique. Continue with 3.
  3. User fills in username and password.
  4. User gets a sign up confirmation and asked to login.
-
-
 
 **User Login**
  1. User visits login page.
@@ -337,7 +365,7 @@ Failure              410 (invalid emailID)
 ```
 
 
-### Architecture (Updated)
+### Architecture
 
 ![Django functionality between SQL database and front-end](https://cloud.githubusercontent.com/assets/22137960/19460674/c9b5dee2-94ab-11e6-9f99-e9a8db972fc4.jpg)
 
@@ -367,28 +395,3 @@ We plan to use:
 -	Google Maps API – (Extended Features)
 -	Facebook API – (Extended Features)
 -	Skype API – (Extended Features)
-
-
-### Contents
-1. Master
-2. Frontend-Main (check the branch for details)
-3. Testcases
-
-
-### Details of work accomplished
-
-The Master file here contains the complete buildable code for the app, which consists of the entire back-end functionality. 
-Running it will show the : 
-
-1. "Profile" page which, as of now, shows the bereft details of a couple of users.
-2. "Search" page where we search for the best match. The pseudocode of the updated algorithm is enclosed, which will be enclosed with the backend in the next iterations.
-3. Django has an in-built messaging app which will be used for messaging the already-made connections.
-4. Full database functionality through DBLite.
-
-The frontend-main branch contains the code for the frontend, which contains all the Python codes for two modules : Login and Dashboard, both of which use Django's authentication framework. The screenshots have also been attached for the graders' benefit. Also, since it cannot be "tested" per se, it has been included in another branch.
-
-The frontend is exectuable in a stand-alone manner, but remains to be integrated with the backend to make the complete app.
-
-Also, test cases have been written for the backend, gauging over quite a progressive coverage.
-
-The Aux contains all the auxiliary, previous files used in the iterations preceding this. They've been kept for the sake of coverage.
