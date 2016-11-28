@@ -105,7 +105,7 @@ CONNECTIONS
 ![connections](https://cloud.githubusercontent.com/assets/22137960/19027245/7c1236c8-88fc-11e6-8771-2c8a99460297.jpg)
 
 
-### Class Diagram (Updated)
+### Class Diagram
 
 ![class_diag](https://www.gliffy.com/go/share/image/slmn4b13fqnrp5ingx4l.png?utm_medium=live-embed&utm_source=custom)
 
@@ -372,12 +372,6 @@ Failure              410 (invalid emailID)
 The system will use a MySQL database at the server side to store details and preferences of each user. Each user will connect to the server to use the jamming application. The messenger application will make use of TCP along with a MySQL database to exchange messages and to store the messages. The system might implement a Google Map API as part of the extended features to display the location of user and a prospective jammer. The front end will be built using HTML, CSS and JavaScript. 
 
 We're using two main JavaScript frameworks : _Angular.js_ and _jQuery_. As shown, we have already used Angular to create some new features in the HTML, but we also aim to use jQuery as well to make the front-end more comprehensive.
-
-**Note : The code is embedded in the 'Code' section of the repository (_Prototype_1_) :**
-
-> https://github.com/jhu-oose/2016-group-18/blob/master/Prototype_1.py. 
-
-**It has been done in Python.**
 
 The system will be divided into these major packages:
 
