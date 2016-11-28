@@ -5,6 +5,7 @@
 1.     Chi Young Shin    (tlscldud)
 2.     Rohit Ravoori     (rohitravoori)
 3.     Shaunak Mukherjee (shaunakmukherjee)
+
 ### Vision Statement/Overview (Updated)
 >We will be attempting to build a service that will allow musicians to interact, collaborate and basically, produce music together. The whole concept of 'jamming' will be redefined, as users will be given the opportunity to view profiles of musicians in their area - who play different instruments (guitar, drums, keyboards, etc.), with varying skills in different genres - and connect with them to produce music together. Our app will enable users to either search for other musicians for a gig; search for bands to join; or simply look for like-minded individuals to play some music, relax and socialize through 'jamming'.
 
@@ -55,9 +56,35 @@
 - A detailed "LEVEL-UP" plan has also been brainstormed, as to how the user can **level up** from one TL to another (or a separate level system with achievements and challenges) after accumulating a certain number of points, based on previous collaborations, ratings obtained, etc.
 - Also, the extended feature of the Google Maps is going to be incorporated, so as to achieve geographical functionality.
 
+### User Interface
+
+LOGIN 
+
+![signup](https://cloud.githubusercontent.com/assets/22137960/19027247/7c142d48-88fc-11e6-997f-c72e969404ab.jpg)
+
+SIGNUP (New User)
+
+![signup_2](https://cloud.githubusercontent.com/assets/22137960/19027248/7c15692e-88fc-11e6-9ccb-fadfb3260a8d.jpg)
+
+PROFILE (MAIN PAGE)
+
+![profile](https://cloud.githubusercontent.com/assets/22137960/19027244/7c1181b0-88fc-11e6-9782-eb90bc0a8f50.jpg)
+
+SEARCH 
+
+![search](https://cloud.githubusercontent.com/assets/22137960/19027246/7c1342ca-88fc-11e6-938e-2851d267eac0.jpg)
+
+CONNECTIONS 
+
+![connections](https://cloud.githubusercontent.com/assets/22137960/19027245/7c1236c8-88fc-11e6-8771-2c8a99460297.jpg)
+
 ### Class Diagram (Updated)
 
 ![class_diag](https://www.gliffy.com/go/share/image/slmn4b13fqnrp5ingx4l.png?utm_medium=live-embed&utm_source=custom)
+
+### UML Activity Diagram
+
+![Activity Diagram] (https://www.gliffy.com/go/publish/image/11225211/L.png)
 
 ### Basic Algorithm for Ranking Search Results
 
@@ -188,11 +215,135 @@ The Rating calculated by us (R), will show up alongside the distance parameter (
  4. User 1 chooses the skill to rate or update.
  5. The system updates the ratings of user 2 using the recommendation system.
 
+##RESTful Interface
+```
+_Login_
+Method               POST
+URL                  r/jamming/Login
+Body                 { userID : <string><PK>, password : <string><unique>, createdOn: <date string> }
+Success Response     Code: 201 user logged in
+                     Body: {}
+Failure              404 (invalid userid/password)
+
+_Sign up_
+Method               POST
+URL                  r/jamming/Signup
+Body                 { emailID : <string>, password : <string><unique>, userName <string><unique> }
+Success Response     Code: 201 user signed up
+                     Body: {}
+Failure              404 (invalid userid/password)
+
+_Update profile information_
+Method               PUT
+URL                  r/jamming/Profile
+Body                 { firstName : <string>, lastName : <string>, bio : <string>, address :              
+                     <string>, availability : <boolean> }
+Success Response     Code: 200 updated
+                     Body: { firstName : <string>, lastName : <string>, bio : <string>, address :              
+                     <string>, availability : <boolean> }
+
+_Add instrument_
+Method               PUT
+URL                  r/jamming/Profile/instrument
+Body                 { type : <string>, genre : <string>, tl : <int> }
+Success Response     Code: 200 added
+                     Body: { type : <string>, genre : <string>, tl : <int> }
+
+_Retrieve genres of instrument_
+Method               GET
+URL                  r/jamming/Profile/instrument
+Body                 (none)
+Success Response     Code: 200 OK
+                     Body: { genre : <string><list> }
+Failure              422 (no instruments)
+
+_Retrieve current technical level_
+Method               GET
+URL                  r/jamming/Profile/tl
+Body                 (none)
+Success Response     Code: 200 OK
+                     Body: { tl : <int> }
+
+_Update technical level_
+Method               PUT
+URL                  r/jamming/Profile/tl
+Body                 { tl : <int> }
+Success Response     Code: 200 updated
+                     Body: { tl : <int> }
+
+_Request a connection_
+Method               POST
+URL                  r/jamming/Connection
+Body                 { emailID1 : <string>, emailID2 : <string> }
+Success Response     Code: 201 requested
+                     Body: {}
+Failure              410 (invalid emailID)
+
+_Accept or reject a connection_
+Method               PUT
+URL                  r/jamming/Connection
+Body                 { response : <boolean> }
+Success Response     Code: 200 OK
+                     Body: { response : <boolean>, emailID1 : <string>, emailID2 : <string> }
+
+_Make a search_
+Method               POST
+URL                  r/jamming/Search
+Body                 { genres : <string><list>, instruments : <string><list>, minTL : <int>, minYrsExp : <int>, minNE : 
+                     <int>, maxDist : <int>, userName : <string>, name : <string> }
+Success Response     Code: 201 searched
+                     Body: { users: <list> }
+Failure              404 (invalid search parameters)
+
+_Make an endorsement_
+Method               POST
+URL                  r/jamming/Endorsement
+Body                 { emailID1 : <string>, emailID2 : <string>, tl : <int>, rating : <int>, comment : <string> }
+Success Response     Code: 201 endorsed
+                     Body: {}
+Failure              410 (invalid emailID)
+
+_Retrieve the endorsed technical level_
+Method               GET
+URL                  r/jamming/Endorsement
+Body                 { emailID: <string> }
+Success Response     Code: 200 OK
+                     Body: { tl : <int> }
+Failure              410 (invalid emailID)
+
+_Update endorsement_
+Method               PUT
+URL                  r/jamming/Endorsement
+Body                 { emailID : <string>, tl : <int>, rating : <int>, comment : <string> }
+Success Response     Code: 200 updated
+                     Body: { emailID : <string>, tl : <int>, rating : <int>, comment : <string> }
+Failure              410 (invalid emailID)
+
+_Send a Direct Message_
+Method               PUT
+URL                  r/jamming/Connection
+Body                 { emailID : <string>, message: <string>, sentOn : <date string> }
+Success Response     Code: 200 sent
+                     Body: { emailID: <string>, message: <string> }
+Failure              410 (invalid emailID)
+
+_Retrieve the Direct Message messages_
+Method               GET
+URL                  r/jamming/Connection
+Body                 { emailID: <string> }
+Success Response     Code: 200 retrieved
+                     Body: { messageHistory : <string><list>, sentOn : <date string> }
+Failure              410 (invalid emailID)
+```
+
+
 ### Architecture (Updated)
 
 ![Django functionality between SQL database and front-end](https://cloud.githubusercontent.com/assets/22137960/19460674/c9b5dee2-94ab-11e6-9f99-e9a8db972fc4.jpg)
 
 The system will use a MySQL database at the server side to store details and preferences of each user. Each user will connect to the server to use the jamming application. The messenger application will make use of TCP along with a MySQL database to exchange messages and to store the messages. The system might implement a Google Map API as part of the extended features to display the location of user and a prospective jammer. The front end will be built using HTML, CSS and JavaScript. 
+
+We're using two main JavaScript frameworks : _Angular.js_ and _jQuery_. As shown, we have already used Angular to create some new features in the HTML, but we also aim to use jQuery as well to make the front-end more comprehensive.
 
 **Note : The code is embedded in the 'Code' section of the repository (_Prototype_1_) :**
 
