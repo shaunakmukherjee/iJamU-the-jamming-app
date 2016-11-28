@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+{% load staticfiles %}
+<html>
+    <head>
+        <title>The Jamming App</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    </head>
+    <body>
+       <div class="page-header">
+    		<h1><a href="/">The Jamming App</a></h1>
+		</div>
+
+        {% for post in userdetail %}
+            <div>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.Username }}</a></h1>
+                <p>{{ post.Fname }}  {{ post.Lname }}</p>
+                <p>{{ post.Bio|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
+    </body>
+</html>
