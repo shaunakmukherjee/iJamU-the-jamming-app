@@ -367,7 +367,6 @@ Failure              410 (invalid emailID)
 
 ### Architecture
 
-![Django functionality between SQL database and front-end](https://cloud.githubusercontent.com/assets/22137960/19460674/c9b5dee2-94ab-11e6-9f99-e9a8db972fc4.jpg)
 <img width="714" alt="screen shot 2016-11-14 at 11 04 38 am" src="https://cloud.githubusercontent.com/assets/22307828/20666921/a8d751e8-b534-11e6-9de0-8fdf9bce481e.png">
 
 The system will use a MySQL database at the server side to store details and preferences of each user. Each user will connect to the server to use the jamming application. The messenger application will make use of TCP along with a MySQL database to exchange messages and to store the messages. The system might implement a Google Map API as part of the extended features to display the location of user and a prospective jammer. The front end will be built using HTML, CSS and JavaScript. 
