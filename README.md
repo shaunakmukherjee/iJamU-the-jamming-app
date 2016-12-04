@@ -9,27 +9,27 @@
 ### Contents
 
 1. Master
-2. Frontend-Main (check the branch for details)
-3. Testcases
-
 
 ### Details of work accomplished
 
 The Master file here contains the complete buildable code for the app, which consists of the entire back-end functionality. 
 Running it will show the : 
 
-1. "Profile" page which, as of now, shows the bereft details of a couple of users.
-2. "Search" page where we search for the best match. The pseudocode of the updated algorithm is enclosed, which will be enclosed with the backend in the next iterations.
-3. Django has an in-built messaging app which will be used for messaging the already-made connections.
-4. Full database functionality through DBLite.
+1. "Login" page where an user can log in based on a username and password. 
+2. "A signup" page attached with it so that new users can sign up for it.
+3.  A "Profile" page which, as of now, shows the bereft details of a couple of users.
+4. "Search" page where we search for the best match.
+(Example " if "drums" are searched for, user "shaunak" will pop up first)
 
-The frontend-main branch contains the code for the frontend, which contains all the Python codes for two modules : Login and Dashboard, both of which use Django's authentication framework. The screenshots have also been attached for the graders' benefit. Also, since it cannot be "tested" per se, it has been included in another branch.
+5. Django has an in-built messaging app which will be used for messaging the already-made connections.
+6. Full database functionality through DBLite.
 
-The frontend is exectuable in a stand-alone manner, but remains to be integrated with the backend to make the complete app.
 
 Also, test cases have been written for the backend, gauging over quite a progressive coverage.
 
 The Aux contains all the auxiliary, previous files used in the iterations preceding this. They've been kept for the sake of coverage.
+
+**PREVIOUS ITERATION WORKFLOW** has been shown below for reference:
 
 ### Vision Statement/Overview
 >We will be attempting to build a service that will allow musicians to interact, collaborate and basically, produce music together. The whole concept of 'jamming' will be redefined, as users will be given the opportunity to view profiles of musicians in their area - who play different instruments (guitar, drums, keyboards, etc.), with varying skills in different genres - and connect with them to produce music together. Our app will enable users to either search for other musicians for a gig; search for bands to join; or simply look for like-minded individuals to play some music, relax and socialize through 'jamming'.
