@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="jumbotron">
+            <h1>iJamU : The Search Page!</h1>
+	<p> All you have to do, is enter a specific criterion. Based on that, we show you who "jams" well with you.
+		</p>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Search for users with the same interests !</button>
+    </form>
+
+{% endblock %}

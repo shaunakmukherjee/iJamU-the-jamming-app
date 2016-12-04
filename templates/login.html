@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    {% if form.errors %}
+
+<p>Username and password didn't match. No Jamming for you!</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+
+<p>Can't get you access, sorry. Try checking in with proper credentials!</p>
+    {% else %}
+
+<p>Please login to see this page.</p>
+    {% endif %}
+{% endif %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Log In to iJamU!</h3>
+                </div>
+                <div class="panel-body">
+                    <form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+
+                        <p class="bs-component">
+                            <table>
+                                <tr>
+                                    <td>{{ form.username.label_tag }}</td>
+                                    <td>{{ form.username }}</td>
+                                </tr>
+                                <tr>
+                                    <td>{{ form.password.label_tag }}</td>
+                                    <td>{{ form.password }}</td>
+                                </tr>
+                            </table>
+                        </p>
+                        <p class="bs-component">
+                            <center>
+                                <input class="btn btn-success btn-sm" type="submit" value="login" />
+                            </center>
+                        </p>
+                        <input type="hidden" name="next" value="{{ next }}" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">New User?</h3>
+                </div>
+				<p>
+				<form action="/accounts/register">
+				<input type="submit" value="Sign Up"/>
+				to avail our services!
+           		</p>
+			</div>
+		</div>
+	</div>
+</div>                            
+<script>
+{% if not user.is_authenticated %}
+$("ul.nav.navbar-nav.navbar-right").css("display","none");
+{% endif %}
+</script>
+
+{% endblock %}
