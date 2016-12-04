@@ -37,28 +37,39 @@ def register(request):
 def registration_complete(request):
     return render_to_response('registration/registration_complete.html')
 
-
+# Returns user details of selected user
 def post_detail(request, pk):
+    # Retrieves the user whose profile is clicked on or a 404 error.
     post = get_object_or_404(Userdetail, pk=pk)
     return render(request, 'post_details.html', {'post': post})
 
+# Returns list of all users
 def usr_list(request):
     userdetail= Userdetail.objects.order_by('Rating')
     return render(request, 'post_list.html', {'userdetail':userdetail})
 
-def gsearch(request):
+# Provides the input form for search
+def profilesearch(request):
     if request.method == "POST":
         form = SearchForm(request.POST)
+        # Checks for form validity
         if form.is_valid():
+            # Does not save the search in the database
             post = form.save(commit=False)
+            #post.Criteria contains the key to be searched on.
             k=post.Criteria+'/'
+            # Redirects to results
             return redirect(k)
     else:
         form = SearchForm()
     return render(request, 'search.html', {'form': form})
 
-def ksearch(request, **kwargs):
+# Returns list of all users that satisfy the search criteria
+def profiles(request, **kwargs):
+    # retrieving the criteria 
     for key, value in kwargs.iteritems():
         s=value;
+    # Searching in genre and instrument
     userdetail= Userdetail.objects.filter(Q(Instruments__icontains=s)|Q(Genre__icontains=s)).order_by('Rating')
+    # Returning the profiles that matched the search criteria
     return render(request, 'post_list.html', {'userdetail':userdetail})
