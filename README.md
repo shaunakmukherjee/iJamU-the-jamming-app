@@ -11,7 +11,7 @@
 1. Jamming = ENTIRE APP (unzipping it will run the app) 
 **NOTE : The app has been designed on Django 1.8**
 
-2. Aux = contains auxiliary codes
+2. Aux = contains auxiliary codes used in previous iterations
 
 ### Details of work accomplished
 
