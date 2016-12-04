@@ -8,7 +8,10 @@
 
 ### Contents
 
-1. Master
+1. Jamming = ENTIRE APP (unzipping it will run the app) 
+**NOTE : The app has been designed on Django 1.8**
+
+2. Aux = contains auxiliary codes
 
 ### Details of work accomplished
 
