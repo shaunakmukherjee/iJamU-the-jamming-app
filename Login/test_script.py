@@ -1,4 +1,5 @@
 from django.test import TestCase
+from django.contrib.auth.models import User
 # imports for testing the model
 from .models import Userdetail,Search
 # imports for testing the view
@@ -13,7 +14,11 @@ from .models import Userdetail,Search
 class UserdetailTest(TestCase):
     
     # creates a test user
-    def create_user(self, Username = "test1",
+    def setUp(self):
+        self.user = User.objects.create_user(username='usertest', password='12345')
+    
+    # creates a test userdetail
+    def create_userdetail(self,
                           Fname = "John",
                           Lname = "Doe",
                           Nickname = "JD",
@@ -24,7 +29,7 @@ class UserdetailTest(TestCase):
                           Genre = "Rock",
                           Address = "1 E UNIV PKWY, Unit 906, Baltimore, MD, 21218",
                           Instruments = "Guitar"):
-        return Userdetail.objects.create(Username = Username,
+        return Userdetail.objects.create(Username = self.user,
                                           Fname = Fname,
                                           Lname = Lname,
                                           Nickname = Nickname,
@@ -38,10 +43,10 @@ class UserdetailTest(TestCase):
     
     # tests whether the user was created and checks the __str__ method
     def test_user_creation(self):
-        u = self.create_user()
-        self.assertTrue(isinstance(u, Userdetails))
-        self.assertEqual(u.__str__(), u.Username)
-        
+        u = self.create_userdetail()
+        self.assertTrue(isinstance(u, Userdetail))
+        self.assertEqual(u.__str__(), str(u.Username))
+    
 # test the Search model
 class SearchTest(TestCase):
     
