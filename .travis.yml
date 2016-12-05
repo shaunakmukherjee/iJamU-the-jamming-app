@@ -9,8 +9,9 @@ env:
 # command to install dependencies
 install: 
   - pip install -q Django==$DJANGO --use-mirrors
+  - pip install coverage
 
 # command to run tests
 script:
-  - django-admin.py shell --settings=Jamming.settings
+  - django-admin.py shell --settings=mysite.settings
   - nosetests --with-coverage --cover-package=Login --verbosity=2
