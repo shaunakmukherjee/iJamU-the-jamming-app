@@ -12,5 +12,5 @@ install:
 
 # command to run tests
 script:
-  - settings.configure()
+  - django-admin.py shell --settings=Jamming.settings
   - nosetests --with-coverage --cover-package=Login --verbosity=2
