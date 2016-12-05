@@ -407,7 +407,7 @@ The system will be divided into these major packages:
 - The **Template** package will contain the code for our front end and will run on the client side. This package will interact with the **UserSys** package.
 
 We plan to use:
--	Python and Django
+-	Python (2.7) and Django (1.8.1)
 -	HTML, CSS and JavaScript
 -	SocketServer Library
 -	Python RecSys Library
