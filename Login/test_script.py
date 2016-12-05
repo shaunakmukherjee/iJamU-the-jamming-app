@@ -1,10 +1,12 @@
-from django.test import TestCase
+from django.test import TestCase, RequestFactory
 from django.contrib.auth.models import User
+
 # imports for testing the model
 from .models import Userdetail,Search
+
 # imports for testing the view
-#from . import views
-#import unittest
+from . import views
+
 # imports for testing the form
 #from .forms import PostForm, SearchForm
 
@@ -77,20 +79,11 @@ class SearchTest(TestCase):
 
 # test the view
 
-#class TestSignup(unittest.TestCase):
-#    def setUp(self):
-#    def test_signup_success(self):
-#    # there are more than one failures
-#    def test_signup_failure(self):
-#
-#class TestLogin(unittest.TestCase):
-#
-#class TestSearch(unittest.TestCase):
-#
-#class TestEndorse(unittest.TestCase):
-#
-#if __name__ = '__main__':
-#    unittest.main
+class TestView(TestCase):
+
+    def setUp(self):
+        self.factory = RequestFacotry()
+        self.user = User.objects.create_user(username='usertest', password='12345')
 
 # need to add more test after framework on views is complete
 
