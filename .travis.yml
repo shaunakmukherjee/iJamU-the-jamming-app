@@ -12,4 +12,5 @@ install:
 
 # command to run tests
 script:
+  - settings.configure()
   - nosetests --with-coverage --cover-package=Login --verbosity=2
