@@ -1,0 +1,17 @@
+language: python
+python:
+# Specifies versions of python to run tests against.
+  - "2.7"
+env:
+# Specifies Django versions to test against
+  - DJANGO=1.8.1
+  
+# command to install dependencies
+install: 
+  - pip install -q Django==$DJANGO --use-mirrors
+  - pip install coverage
+
+# command to run tests
+script:
+  - coverage run manage.py test -v 2
+  - coverage report -m
