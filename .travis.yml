@@ -1,17 +1,17 @@
 language: python
 python:
 # Specifies versions of python to run tests against.
-  - "2.6"
   - "2.7"
 env:
 # Specifies Django versions to test against
   - DJANGO=1.8.1
   
 # command to install dependencies
-install:
-  - pip install -q django==$DJANGO --use-mirrors
-  - pip install -q -e . --use-mirrors
+install: 
+  - pip install -r requirements.txt
+  - pip install -q Django==$DJANGO --use-mirrors
 
 # command to run tests
-script: 
-  - python manage.py test
+script:
+  - nosetests --with-coverage --cover-package=flask_server_folder --verbosity=2
+  - source your_bash_testing_script.sh
