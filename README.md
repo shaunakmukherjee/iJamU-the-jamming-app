@@ -29,9 +29,10 @@ Running it will show the :
 
 
 Also, test cases have been written for the backend:
-The models (database) test cases have been written.
-Framework for the views has been written (test has not yet been implemented)
-Below is a coverage report of currently available tests
+ - The models (database) test cases have been written.
+ - Framework for the views has been written (test has not yet been implemented)
+ - Travis test harness has been implemented
+ - Below is a coverage report of currently available tests
 
 ### Test Coverage
 ```
