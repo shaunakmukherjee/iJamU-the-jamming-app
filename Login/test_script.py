@@ -1,6 +1,6 @@
 from django.test import TestCase
 # imports for testing the model
-from .models import Userdetails,Search
+from .models import Userdetail,Search
 # imports for testing the view
 #from . import views
 #import unittest
@@ -22,9 +22,9 @@ class UserdetailTest(TestCase):
                           Rating = "4",
                           Bio = "Test is life",
                           Genre = "Rock",
-                          Address = "1 E UNIV PKWY, Unit 906, Baltimore, MD, 21218"
+                          Address = "1 E UNIV PKWY, Unit 906, Baltimore, MD, 21218",
                           Instruments = "Guitar"):
-        return Userdetails.objects.create(Username = Username,
+        return Userdetail.objects.create(Username = Username,
                                           Fname = Fname,
                                           Lname = Lname,
                                           Nickname = Nickname,
@@ -53,7 +53,7 @@ class SearchTest(TestCase):
     def test_search_creation(self):
         s = self.create_search()
         self.assertTrue(isinstance(s, Search))
-        self.assertEqual(s.__str__(), s.Instruments)
+        self.assertEqual(s.__str__(), s.Criteria)
 
 # test the Connections model
 #class ConnectionsTest(TestCase):
