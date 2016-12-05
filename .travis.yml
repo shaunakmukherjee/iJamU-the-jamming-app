@@ -13,5 +13,5 @@ install:
 
 # command to run tests
 script:
-  - nosetests --with-coverage --cover-package=flask_server_folder --verbosity=2
+  - nosetests --with-coverage --cover-package=Login --verbosity=2
   - source your_bash_testing_script.sh
