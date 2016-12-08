@@ -35,19 +35,19 @@ def rating(end):
             o_r.append(e[1])
     
     # add the ratings for sum
-    TL = 0
+    tlevel = 0
     for t in t_r:
-        TL = TL + t
-    OvR = 0
+        tlevel = tlevel + t
+    ovr = 0
     for o in o_r:
-        OvR = OvR + o
+        ovr = ovr + o
     
     # divide the sum by m (beginners will receive ratings lower than average)
     if n_e < m:
-        TL = TL / m
-        OvR = OvR / m
+        tlevel = tlevel / m
+        ovr = ovr / m
     
-    return [TL, OvR, beg]
+    return [tlevel, ovr, beg]
 
 # given a list of userdetails, the function gives a ranking to each user and 
 # returns a sorted tuple (according to ranking)
@@ -77,7 +77,7 @@ def ranking(udlist):
         # if user has greater than m endorsements, 
         # additional endorsements are weighted down
         if n_e > m:
-            ef = m + (n_e - m)*..25
+            ef = m + (n_e - m)*.25
         else:
             ef = n_e
         
