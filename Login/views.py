@@ -1,7 +1,7 @@
 #Login/views.py
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from .models import Userdetail
+from .models import Userdetail,Connection
 from django.shortcuts import get_object_or_404
 from .forms import SearchForm
 from django.shortcuts import redirect
@@ -38,6 +38,11 @@ def registration_complete(request):
     return render_to_response('registration/registration_complete.html')
 
 
+def Connections(request):
+    s="drum"
+    userdetail= Connection.objects.filter(User1="rohit")
+    return render(request, 'con.html', {'userdetail':userdetail})
+
 def post_detail(request, pk):
     post = get_object_or_404(Userdetail, pk=pk)
     return render(request, 'post_details.html', {'post': post})
@@ -61,4 +66,11 @@ def ksearch(request, **kwargs):
     for key, value in kwargs.iteritems():
         s=value;
     userdetail= Userdetail.objects.filter(Q(Instruments__icontains=s)|Q(Genre__icontains=s)).order_by('Rating')
+    return render(request, 'post_list.html', {'userdetail':userdetail})
+
+
+def consearch(request, **kwargs):
+    for key, value in kwargs.iteritems():
+        s=value;
+    userdetail= Userdetail.objects.filter(Q(Fname__icontains=s)).order_by('Rating')
     return render(request, 'post_list.html', {'userdetail':userdetail})
