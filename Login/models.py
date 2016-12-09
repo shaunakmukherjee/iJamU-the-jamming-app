@@ -32,7 +32,15 @@ class Search(models.Model):
 
 class Connection(models.Model):
     User1 = models.CharField(max_length=50)
-    User2 = models.ForeignKey(Userdetail,to_field='Username',unique=True)
+    User2 = models.ForeignKey(Userdetail,to_field='Username')
+    Endorsed = models.BooleanField(default = "False")
+
+    def __str__(self):
+        return self.User1
+
+class Request(models.Model):
+    User1 = models.CharField(max_length=50)
+    User2 = models.ForeignKey(Userdetail,to_field='Username')
     Endorsed = models.BooleanField(default = "False")
 
     def __str__(self):
