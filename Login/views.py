@@ -7,6 +7,7 @@ from .forms import SearchForm,PostForm
 from django.shortcuts import redirect
 from django.db.models import Q
 from django.shortcuts import render_to_response
+from django.core.context_processors import csrf 
 from django.http import HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
 from django.conf import settings
