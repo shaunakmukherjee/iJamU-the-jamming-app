@@ -20,7 +20,7 @@ Years: {{ post.Year }}
   <br>
 
 Do you want to connect with this user?
-<form action="{% url 'makereq' post.User2 %}" method="post">{% csrf_token %}
+<form action="{% url 'makereq' post.Username %}" method="post">{% csrf_token %}
     {{form.as_p}}
   <input type="submit" value="Yes. Connect me!" />
 <form>
