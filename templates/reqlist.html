@@ -30,11 +30,11 @@
         {% endfor %}
 What do you want to do with this user?
 
-<form action="{% url 'accept' post.User2 %}" method="post">{% csrf_token %}
+<form action="{% url 'accept' post.Username %}" method="post">{% csrf_token %}
     {{form.as_p}}
   <input type="submit" value="Accept the connection!" />
 </form>
-<form action="{% url 'delreq' post.User2 %}" method="post">{% csrf_token %}
+<form action="{% url 'delreq' post.Username %}" method="post">{% csrf_token %}
     {{form.as_p}}
   <input type="submit" value="Reject the connection!" />
 </form>
