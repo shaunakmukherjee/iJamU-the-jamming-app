@@ -1,0 +1,29 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<html>
+    <head>
+        <title>iJamU - Messaging </title>
+    </head>
+    <body>
+	<div class="container">
+    	<div class="row">
+        	<div class="jumbotron">
+            <h1>Messaging </h1>
+            <p></p>
+			<p></p>
+        	</div>
+    	</div>
+	</div>
+	<h2> Hey there ! This is a service that will allow you to message any user ! </h2>
+	<form action="\email\" method="post">{% csrf_token %}
+    {{form.as_p}}
+  <input type="submit" value="Mail me!" />
+
+	
+{% endblock %}
+    </body>
+</html>
+   
