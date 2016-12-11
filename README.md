@@ -24,7 +24,8 @@ Running it will show the :
 4. "Search" page where we search for the best match.
 (Example " if "drums" are searched for, user "shaunak" will pop up first)
 
-5. Django has an in-built messaging app which will be used for messaging the already-made connections.
+5. "Connections" where one can search for and accept/reject connections.
+6. "Messaging" - as Prof. Smith had suggested, there's a messaging app to mail prospective connections.
 6. Full database functionality through DBLite.
 
 

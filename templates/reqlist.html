@@ -1,0 +1,34 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<html>
+    <head>
+        <title>iJamU - Search</title>
+    </head>
+    <body>
+	<div class="container">
+    	<div class="row">
+        	<div class="jumbotron">
+            <h1>Search Results : </h1>
+            <p></p>
+			<p></p>
+        	</div>
+    	</div>
+	</div>
+        {% for post in userdetail %}
+            <div>
+                <p>Name : {{ post.Fname }}  {{ post.Lname }}</p>
+                <p>Nickname : {{ post.Nickname }}</p>
+               <p> Techlevel : {{ post.Techlevel }}</p>
+                <p>Genre : {{post.Genre}}</p>
+                <p>Instruments : {{ post.Instruments}}</p>
+                <p>Address : {{ post.Address}}</p>
+                <p> Bio : {{ post.Bio|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
+
+{% endblock %}
+    </body>
+</html>

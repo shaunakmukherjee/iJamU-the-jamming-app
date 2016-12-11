@@ -7,13 +7,13 @@ class Userdetail(models.Model):
     Fname = models.CharField(max_length=25)
     Lname = models.CharField(max_length=25)
     Nickname=models.CharField(max_length=25)
-    Techlevel=models.DecimalField(max_digits=1,decimal_places=0)
+    Techlevel=models.DecimalField(max_digits=1,decimal_places=0,default=1)
     Year=models.DecimalField(max_digits=2,decimal_places=0)
     Rating=models.DecimalField(max_digits=1,decimal_places=0)
-    Bio=models.TextField(max_length=300)
-    Genre=models.TextField(max_length=300)
+    Bio=models.TextField(max_length=300,blank=True)
+    Genre=models.TextField(max_length=300,blank=True)
     Address=models.TextField(max_length=300)
-    Instruments=models.TextField(max_length=300)
+    Instruments=models.TextField(max_length=300,blank=True)
 
   
 
@@ -32,7 +32,15 @@ class Search(models.Model):
 
 class Connection(models.Model):
     User1 = models.CharField(max_length=50)
-    User2 = models.ForeignKey(Userdetail,to_field='Username',unique=True)
+    User2 = models.CharField(max_length=50)
+    Endorsed = models.BooleanField(default = "False")
+
+    def __str__(self):
+        return self.User1
+
+class Crequest(models.Model):
+    User1 = models.CharField(max_length=50)
+    User2 = models.CharField(max_length=50)
     Endorsed = models.BooleanField(default = "False")
 
     def __str__(self):
