@@ -7,9 +7,12 @@ from .forms import SearchForm,PostForm
 from django.shortcuts import redirect
 from django.db.models import Q
 from django.shortcuts import render_to_response
+from django.core.context_processors import csrf 
 from django.http import HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
-from django.core.context_processors import csrf
+from django.conf import settings
+from django.core.mail import send_mail
+
 
 # Create your views here.
 
@@ -45,12 +48,21 @@ def Connections(request):
     # Renders the list of connected users
     return render(request, 'con.html', {'userdetail':userdetail})
 
-#Displays the requests for the user
+#For e-mail
+def Email(request):
+    send_mail('Whatsup!', 'We are connected', 'tplusus@gmail.com', ['shaunak.mukherjee94@gmail.com'])
+
+
+#Displays Requests
 def Requests(request):
     # Creates an array Requests sent to the user. 
-    userdetail= Crequest.objects.filter(User1=pseudov)
+    userdetail= Crequest.objects.filter(User2=pseudov)
     #Renders the list of pending requests.
     return render(request, 'req.html', {'userdetail':userdetail})
+
+#Displays Messaging
+def Messaging (request):
+    return render(request,'messaging.html')
 
 # Returns the details of a particular user.
 def post_detail(request, pk):
