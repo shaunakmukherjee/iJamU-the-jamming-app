@@ -116,6 +116,7 @@ def makereq(request, **kwargs):
     k=Crequest(User1=s,User2=pseudov)
     # Store in the database.
     k.save()
+    return render(request, 'connectionrequests/sent.html')
 
 # Delete the request from the database after the request has been either accepted or declined.
 def delreq(request, **kwargs):
@@ -126,6 +127,7 @@ def delreq(request, **kwargs):
     k=get_object_or_404(Crequest,User1=pseudov,User2=s)
     # Delete the request
     k.delete()
+    return render(request, 'connectionrequests/reject.html')
 
 # Create a connection, Adding redundancy to make querying easier.
 def accept(request, **kwargs):
@@ -140,9 +142,10 @@ def accept(request, **kwargs):
     k=Connection(User1=pseudov,User2=s)
     # Store in the database.
     k.save()
+    return render(request, 'connectionrequests/accept.html')
 
 # Delete the connection from the database.
-def delreq(request, **kwargs):
+def deleteconnection(request, **kwargs):
      # Get username of the user.
     for key, value in kwargs.iteritems():
         s=value;  
@@ -154,6 +157,7 @@ def delreq(request, **kwargs):
     k=get_object_or_404(Connection,User1=s,User2=pseudov)
     # Delete the connection from the other end.
     k.delete()
+    return render(request, 'connectionrequests/deleteconnection.html')
 
 
 # Update user details.
