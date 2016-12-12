@@ -1,10 +1,11 @@
-# 2016-group-18 - iJamU
+# 2016-group-18
+# iJamU - Alpha release 
 
 *Project members :* 
 
-1.     Chi Young Shin    (tlscldud)
-2.     Rohit Ravoori     (rohitravoori)
-3.     Shaunak Mukherjee (shaunakmukherjee)
+1.     Chi Young Shin    (@tlscldud)
+2.     Rohit Ravoori     (@rohitravoori)
+3.     Shaunak Mukherjee (@shaunakmukherjee)
 
 
 ### Notes on the Alpha release (1.1)
