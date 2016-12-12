@@ -20,7 +20,6 @@ class Test_Validations(TestCase):
         
         # test for login failures
         
-        # find actual response code
         #self.assertEqual(response.redirectchain,[('http://testserver/login/home.html',302)])
         
     #REGISTER register()
