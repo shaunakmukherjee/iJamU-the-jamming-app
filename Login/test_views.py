@@ -1,13 +1,14 @@
 # Enables use of dummy web browser
 from django.test import TestCase, Client
 from django.contrib.auth.models import User
+from .models import Userdetail
 
 # imports of views
 from . import views
 
 # test views validations with HTTP
 class Test_Validations(TestCase):
-    fixtures = ['user_fixture','userdetail_fixture']
+    fixtures = ['user_data','userdetail_data']
 
     def setUp(self):
         self.c = Client()

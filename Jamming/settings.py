@@ -114,5 +114,4 @@ EMAIL_USE_TLS = True
 STATIC_URL = '/static/'
 
 # Adding the path after Login
-
 LOGIN_REDIRECT_URL = '/' # It means home view
