@@ -7,6 +7,7 @@ from /Login import views
 
 # test views validations with HTTP
 class Test_Validations(TestCase):
+    fixtures = ['user','user_detail']
 
     def setUp(self):
         self.c = Client()
@@ -37,11 +38,11 @@ class Test_Validations(TestCase):
                                'Lname':'Doe','Techlevel':'1','Year':'1','Rating':'1',
                                'Bio':'test is life','Instruments':'Guitar',
                                'Genre':'Rock'},follow=true)
-        
+                
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.redirectchain,[('http://testserver/accounts/register/complete',302),
                                                  ('post_detail'),302])
-        
+        self.assertEqual(response.templates, 'profilesearch/profile.html')
         
         
         
