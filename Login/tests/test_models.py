@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 
 # imports for testing the model
-from .models import Userdetail,Search,Crequest
+from /Login/models import Userdetail,Search,Crequest
 
 # test the Userdetails model
 class UserdetailTest(TestCase):
