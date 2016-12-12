@@ -5,7 +5,7 @@
 
 <html>
     <head>
-        <title>iJamU - Search</title>
+        <title>iJamU - Requests</title>
     </head>
     <body>
 	<div class="container">
@@ -19,16 +19,29 @@
 	</div>
         {% for post in userdetail %}
             <div>
+				{{ post.Username }}
                 <p>Name : {{ post.Fname }}  {{ post.Lname }}</p>
                 <p>Nickname : {{ post.Nickname }}</p>
                <p> Techlevel : {{ post.Techlevel }}</p>
                 <p>Genre : {{post.Genre}}</p>
                 <p>Instruments : {{ post.Instruments}}</p>
                 <p>Address : {{ post.Address}}</p>
-                <p> Bio : {{ post.Bio|linebreaksbr }}</p>
+                <p>Bio : {{ post.Bio|linebreaksbr }}</p>
             </div>
-        {% endfor %}
+        
+What do you want to do with this user?
 
+<form action="{% url 'accept' post.Username %}" method="post">{% csrf_token %}
+    {{form.as_p}}
+  <input type="submit" value="Accept the request!" />
+</form>
+
+<form action="{% url 'delreq' post.Username %}" method="post">{% csrf_token %}
+    {{form.as_p}}
+  <input type="submit" value="Delete the request!" />
+</form>
+{% endfor %}
 {% endblock %}
+
     </body>
 </html>

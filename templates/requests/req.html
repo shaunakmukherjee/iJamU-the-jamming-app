@@ -17,8 +17,8 @@
         	</div>
     	</div>
 	</div>
-    		<h2><a href="/">Unsure? Go back to the home page!</a></h2>
-		<p> Based on your criteria, we have the following users most suited to working with you. Feel free to click their links, to see their full profile! 
+    		<a href="/">Unsure? Go back to the home page!</a>
+		<p> <h2>These are the people who've sent you requests! Click their name for details. </p> <h2>
         {% for post in userdetail %}
             <div>
                 <h1><a href="{% url 'reqsearch' post.User2 %}">{{ post.User2 }}</a></h1>

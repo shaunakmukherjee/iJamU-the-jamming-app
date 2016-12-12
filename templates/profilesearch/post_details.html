@@ -1,0 +1,26 @@
+  <h1>{{ post.Username }}</h1>
+  Name: {{ post.Fname }}
+   {{ post.Lname }}
+ <br>
+ Tech Level : {{ post.Techlevel }}
+ <br>
+<br>
+Years: {{ post.Year }}
+ <br>
+ Rating : {{ post.Rating }}
+ <br>
+ <br>
+Years: {{ post.Year }}
+ <br>
+ Address : {{ post.Address}}
+ <br>
+ Instruments : {{ post.Instruments }}
+ <br>
+ <p>  Bio : {{ post.Bio|linebreaksbr }}</p>
+  <br>
+
+Do you want to connect with this user?
+<form action="{% url 'makereq' post.Username %}" method="post">{% csrf_token %}
+    {{form.as_p}}
+  <input type="submit" value="Yes. Connect me!" />
+<form>

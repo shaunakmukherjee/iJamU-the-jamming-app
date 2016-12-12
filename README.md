@@ -6,27 +6,20 @@
 2.     Rohit Ravoori     (rohitravoori)
 3.     Shaunak Mukherjee (shaunakmukherjee)
 
-### Contents
 
-1. Jamming = ENTIRE APP (unzipping it will run the app) 
-**NOTE : The app has been designed on Django 1.8**
+### Notes on the Alpha release (1.1)
 
-2. Aux = contains auxiliary codes used in previous iterations
+The alpha build of the project is up and running.
+The Master file here contains the complete buildable code for the app, which consists of the entire front-end as well as back-end functionality. 
+It contains the following functionalities : 
 
-### Details of work accomplished
-
-The Master file here contains the complete buildable code for the app, which consists of the entire back-end functionality. 
-Running it will show the : 
-
-1. "Login" page where an user can log in based on a username and password. 
-2. "A signup" page attached with it so that new users can sign up for it.
-3.  A "Profile" page which, as of now, shows the bereft details of a couple of users.
-4. "Search" page where we search for the best match.
-(Example " if "drums" are searched for, user "shaunak" will pop up first)
-
-5. "Connections" where one can search for and accept/reject connections.
-6. "Messaging" - as Prof. Smith had suggested, there's a messaging app to mail prospective connections.
-6. Full database functionality through DBLite.
+1. REGISTRATION for new users, followed by the ADDING of the DETAILS (filling in details of genre, instruments, bio, name, etc.)
+2. LOGIN for existing users (username and password) - _subject to validation_
+3. UPDATE PROFILE for updating details as and when required
+4. SEARCH to search for users based on the same instruments/genres - one can CONNECT to interesting users 
+5. REQUESTS to see what requests have been sent to the aforementioned user, to either ACCEPT or REJECT them
+6. CONNECTIONS to manage connections (accepted requests) - to either view details or DELETE them
+7. MESSAGING to message the users via e-mail (**Note : G-Mail in 2016 has stopped allowing third-party applications like Django to send/receive mails through its transfer protocol (SMTP), however we have managed to exclude the two-phase authentication system. Howevr,the final SMTP permission can't be achieved without proper licenses and permissions.) 
 
 
 Also, **test cases** have been written for the backend:
@@ -56,9 +49,9 @@ TOTAL                                                                           
 
 The Aux contains all the auxiliary, previous files used in the iterations preceding this. They've been kept for the sake of coverage.
 
-**PREVIOUS ITERATION WORKFLOW** has been shown below for reference:
+###PREVIOUS ITERATION WORKFLOW has been shown below for reference:
 
-### Vision Statement/Overview
+## Vision Statement/Overview
 >We will be attempting to build a service that will allow musicians to interact, collaborate and basically, produce music together. The whole concept of 'jamming' will be redefined, as users will be given the opportunity to view profiles of musicians in their area - who play different instruments (guitar, drums, keyboards, etc.), with varying skills in different genres - and connect with them to produce music together. Our app will enable users to either search for other musicians for a gig; search for bands to join; or simply look for like-minded individuals to play some music, relax and socialize through 'jamming'.
 
 >The user will be able to search for other musicians based on instruments, genres, technical level, and years of experience. Our ranking algorithm will take in to account various factors such as number of previous collaborations, technical level, user ratings and proximity to offer you the best people to connect with for you! This non-trivial algorithm first calculates the user's technical level, and correlates that with previously obtained ratings, to rank and sort the musicians in your search results to conveniently recommend the best people to connect with.
@@ -66,7 +59,7 @@ The Aux contains all the auxiliary, previous files used in the iterations preced
 >Once a user decides on a musician to collaborate with, he is able to send a request for a connection that will enable the users to communicate with each other through a direct messaging application. Users will have the ability to reject or accept a connection and will also have the ability to endorse fellow musicians that they have connected with following a successful collaboration. The number of endorsements and the ratings you receive in these endorsements will be integral in improving your profile which will enable you to connect with more active and prominent musicians by enhancing your visibility to other users.
 
 
-### Features List:
+## Features List:
 - New users can __sign up__ and make an account
     - Required fields (Email ID, password, User name)
 - New users will be designated as __'new members'__ until users receives a certain number of endorsements
@@ -94,7 +87,7 @@ The Aux contains all the auxiliary, previous files used in the iterations preced
       - number of endorsements received
 - User can build his profile (increase rating, technical level) through receiving endorsements
 
-### Extended Features:
+## Extended Features:
 - Retrieve current location of user or user designated address in search instead of address
 - Users can view a list of endorsements showing ratings and comment of a searched or connected user
 - Multiple endorsements to the same user using a time limit between endorsements
@@ -109,7 +102,7 @@ The Aux contains all the auxiliary, previous files used in the iterations preced
 - Also, the extended feature of the Google Maps is going to be incorporated, so as to achieve geographical functionality.
 
 
-### User Interface
+## User Interface
 
 LOGIN 
 
