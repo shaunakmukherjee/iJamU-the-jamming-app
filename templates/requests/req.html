@@ -1,0 +1,30 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<html>
+    <head>
+        <title>iJamU - Search</title>
+    </head>
+    <body>
+	<div class="container">
+    	<div class="row">
+        	<div class="jumbotron">
+            <h1>Search Results : </h1>
+            <p></p>
+			<p></p>
+        	</div>
+    	</div>
+	</div>
+    		<a href="/">Unsure? Go back to the home page!</a>
+		<p> <h2>These are the people who've sent you requests! Click their name for details. </p> <h2>
+        {% for post in userdetail %}
+            <div>
+                <h1><a href="{% url 'reqsearch' post.User2 %}">{{ post.User2 }}</a></h1>
+            </div>
+        {% endfor %}
+
+{% endblock %}
+    </body>
+</html>

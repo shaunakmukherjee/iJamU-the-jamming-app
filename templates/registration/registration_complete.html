@@ -4,6 +4,10 @@
 
       <h2>Thank you for Registering! We hope you'll be satisfied with our app! </h2>
 
+		<form action="\add\">{% csrf_token %}
+    {{form.as_p}}
+  <input type="submit" value="Update your profile!"/>
+
     {% endblock %}
 
 

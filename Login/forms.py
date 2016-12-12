@@ -20,4 +20,4 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Userdetail
-        fields = ('Username', 'Fname','Lname', 'Techlevel','Year','Rating','Bio','Instruments','Genre',)
+        fields = ('Fname','Lname', 'Techlevel','Year','Rating','Bio','Instruments','Genre',)

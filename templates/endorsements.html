@@ -1,27 +1,26 @@
-
 {% extends 'base.html' %}
 
 {% block content %}
 
 <html>
     <head>
-        <title>iJamU - Search</title>
+        <title>iJamU - Endorsements</title>
     </head>
     <body>
 	<div class="container">
     	<div class="row">
         	<div class="jumbotron">
-            <h1>Requests List : </h1>
+            <h1>Endorsements :  </h1>
             <p></p>
 			<p></p>
         	</div>
     	</div>
 	</div>
     		<h2><a href="/">Unsure? Go back to the home page!</a></h2>
-		<p> Below are the people who've sent you requests. Please click their links to see their profiles, and to accept/reject them!
+		<p> Below are the people who're your connections!
         {% for post in userdetail %}
             <div>
-                <h1><a href="{% url 'reqsearch' post.User2 %}">{{ post.User2 }}</a></h1>
+                <h1><a href="{% url 'reqsearch' post.Username %}">{{ post.User2 }}</a></h1>
             </div>
         {% endfor %}
 

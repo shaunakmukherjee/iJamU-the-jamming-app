@@ -5,13 +5,13 @@
 
 <html>
     <head>
-        <title>iJamU - Requests</title>
+        <title>iJamU - Connections</title>
     </head>
     <body>
 	<div class="container">
     	<div class="row">
         	<div class="jumbotron">
-            <h1>Search Results : </h1>
+            <h1>Connection : Detailed Profile </h1>
             <p></p>
 			<p></p>
         	</div>
@@ -25,20 +25,16 @@
                 <p>Genre : {{post.Genre}}</p>
                 <p>Instruments : {{ post.Instruments}}</p>
                 <p>Address : {{ post.Address}}</p>
-                <p>Bio : {{ post.Bio|linebreaksbr }}</p>
+                <p> Bio : {{ post.Bio|linebreaksbr }}</p>
             </div>
-        {% endfor %}
-What do you want to do with this user?
+        
 
-<form action="{% url 'accept' post.Username %}" method="post">{% csrf_token %}
+Do you want to delete this connection?
+<form action="{% url 'deleteconnection' post.Username %}" method="post">{% csrf_token %}
     {{form.as_p}}
-  <input type="submit" value="Accept the connection!" />
+  <input type="submit" value="Yes. Please delete this!" />
 </form>
-<form action="{% url 'delreq' post.Username %}" method="post">{% csrf_token %}
-    {{form.as_p}}
-  <input type="submit" value="Reject the connection!" />
-</form>
+      {% endfor %}
 {% endblock %}
-
     </body>
 </html>
