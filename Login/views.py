@@ -51,8 +51,9 @@ def registration_complete(request):
     else:
         form = PostForm(request.POST)
     return render(request, 'profilesearch/post_edit.html', {'form': form})
+        # MISSING redirect to registration_complete.html
 
-
+# I don't get what the first part is actually doin (Chi)
 # Update user details.
 def post_update(request):
     if request.method == "POST":
