@@ -1,10 +1,11 @@
-# 2016-group-18 - iJamU
+# 2016-group-18
+# iJamU - Alpha release 
 
 *Project members :* 
 
-1.     Chi Young Shin    (tlscldud)
-2.     Rohit Ravoori     (rohitravoori)
-3.     Shaunak Mukherjee (shaunakmukherjee)
+1.     Chi Young Shin    (@tlscldud)
+2.     Rohit Ravoori     (@rohitravoori)
+3.     Shaunak Mukherjee (@shaunakmukherjee)
 
 
 ### Notes on the Alpha release (1.1)
@@ -19,7 +20,9 @@ It contains the following functionalities :
 4. SEARCH to search for users based on the same instruments/genres - one can CONNECT to interesting users 
 5. REQUESTS to see what requests have been sent to the aforementioned user, to either ACCEPT or REJECT them
 6. CONNECTIONS to manage connections (accepted requests) - to either view details or DELETE them
-7. MESSAGING to message the users via e-mail (**Note : G-Mail in 2016 has stopped allowing third-party applications like Django to send/receive mails through its transfer protocol (SMTP), however we have managed to exclude the two-phase authentication system. Howevr,the final SMTP permission can't be achieved without proper licenses and permissions.) 
+7. MESSAGING to message the users via e-mail 
+
+**Note : G-Mail in 2016 has stopped allowing third-party applications like Django to send/receive mails through its transfer protocol (SMTP), however we have managed to exclude the two-phase authentication system. Howevr,the final SMTP permission can't be achieved without proper licenses and permissions.**
 
 
 Also, **test cases** have been written for the backend:

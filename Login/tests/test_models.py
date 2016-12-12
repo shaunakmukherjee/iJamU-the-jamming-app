@@ -1,16 +1,8 @@
-from django.test import TestCase, RequestFactory
+from django.test import TestCase
 from django.contrib.auth.models import User
 
 # imports for testing the model
-from .models import Userdetail,Search
-
-# imports for testing the view
-from . import views
-
-# imports for testing the form
-#from .forms import PostForm, SearchForm
-
-# models test
+from .models import Userdetail,Search,Crequest
 
 # test the Userdetails model
 class UserdetailTest(TestCase):
@@ -49,6 +41,8 @@ class UserdetailTest(TestCase):
         self.assertTrue(isinstance(u, Userdetail))
         self.assertEqual(u.__str__(), str(u.Username))
     
+    # test the other users
+    
 # test the Search model
 class SearchTest(TestCase):
     
@@ -62,31 +56,42 @@ class SearchTest(TestCase):
         self.assertTrue(isinstance(s, Search))
         self.assertEqual(s.__str__(), s.Criteria)
 
-# test the Connections model
-#class ConnectionsTest(TestCase):
-#    
-#    # creates a test connection
-#    def create_connections(self, User1 = "John Doe",
-#                                 User2 = "Jane Doe"):
-#        return Connections.objects.create(User1 = User1,
-#                                          User2 = User2)
-#    
-#    # tests whether the connection was created and checks the __str__ method
-#    def test_connection_creation(self):
-#        c = self.create_connections()
-#        self.assertTrue(isinstance(c, Connections))
-#        self.assertEqual(c.__str__(), s.User1)
-
-# test the view
-
-class TestView(TestCase):
-
+# test the Connection model
+class ConnectionTest(self):
+    
+    # creates 2 test users
     def setUp(self):
-        self.factory = RequestFacotry()
-        self.user = User.objects.create_user(username='usertest', password='12345')
+        self.user1 = User.objects.create_user(username='usertest1', password='12345')
+        self.user2 = User.objects.create_user(username='usertest2', password='54321')
+    
+    # creates a test connection
+    def create_connection(self):
+        return Connection.objects.create(User1=self.user1,User2=self.user2)
+        
+    # tests whether the connection was created and checks the __str__ method
+    def test_connection_creation(self):
+        c = self.create_connection()
+        self.assertTrue(isinstance(c, Connection))
+        self.assertEqual(c.__str__(), str(c.User1))
+    
+    # test the other user and boolean default
 
-# need to add more test after framework on views is complete
-
-# test the forms
-
-# need to add testing for api
+# test the connection request model
+class Crequest(self):
+    
+    # creates 2 test users
+    def setUp(self):
+        self.user1 = User.objects.create_user(username='usertest1', password='12345')
+        self.user2 = User.objects.create_user(username='usertest2', password='54321')
+    
+    # creates a connection request
+    def create_Crequest(self):
+        return Crequest.objects.create(User1=self.user1,User2=self.user2)
+        
+    # tests whether the request was created and checks the __str__ method
+    def test_connection_creation(self):
+        cr = self.create_Crequest()
+        self.assertTrue(isinstance(cr, Crequest))
+        self.assertEqual(cr.__str__(), str(cr.User1))
+    
+    # test the other user and boolean default
