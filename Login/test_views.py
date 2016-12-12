@@ -1,46 +1,68 @@
 # Enables use of dummy web browser
 from django.test import TestCase, Client
 from django.contrib.auth.models import User
+from .models import Userdetail
 
 # imports of views
 from . import views
 
-# test views validations with HTTP
-class Test_Validations(TestCase):
-    fixtures = ['user_fixture','userdetail_fixture']
+# test Login and Signup
+class Test_Login_Signup(TestCase):
+    # Install the test fixtures for user and userdetail
+    fixtures = ['user_data','userdetail_data']
+    usrs = User.objects.all()
 
     def setUp(self):
         self.c = Client()
-        self.user = User.objects.create_user(username='test', password='12345')
+        
+        # set/hash the passwords of the users
+        for u in self.usrs:
+            u.set_password(u.password)
+            u.save()
     
     # LOGIN home()
     def test_login(self):
-        # login using test user
-        response = self.c.post('/login/',{'username': 'test', 'password': '12345'},follow=True)
-        
         # test for login failures
-        
-        #self.assertEqual(response.redirectchain,[('http://testserver/login/home.html',302)])
-        
+        logged = self.c.login(username='falsetest',password='00000');
+        self.assertEqual(logged,False)
+        # test for incorrect password
+        logged = self.c.login(username='test1',password='00000');
+        self.assertEqual(logged,False)
+        # login using test user
+        logged = self.c.login(username='test1',password='11111');
+        self.assertEqual(logged,True)
+        self.c.logout()
+        # Check if server does not redirect if incorrect login is given
+        response = self.c.post('/login/',{'username':'test1','password':'00000'},follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.redirect_chain, [])
+        # Check if server correctly redirects of correct login is given
+        response = self.c.post('/login/',{'username':'test1','password':'11111'},follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.redirect_chain, [('http://testserver/',302)])
+        self.assertTemplateUsed(response,'home.html')
+
     #REGISTER register()
     def test_register(self):
         # open the register page
         response = self.c.head('/accounts/register/')
-        
         self.assertEqual(response.status_code, 200)
-        #self.assertEqual(response.templates, 'registration/registration_form.html')
-        
-        # Complete registration
+        self.assertTemplateUsed(response,'registration/registration_form.html')
+        # test for invalid registration. Redirects back to registration form
+        response = self.c.post('/accounts/register/',{'username': 'test1',
+                               'password1': '00000','password2':'00000'},follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response,'registration/registration_form.html')
+        # Passwords don't match. Redirects to profile edit form
         response = self.c.post('/accounts/register/',{'username': 'newtest',
-                               'password': '55555'},follow=True)
-        # test for invalid registration
-                
+                               'password1': '00000','password2':'01010'},follow=True)
         self.assertEqual(response.status_code, 200)
-        
-        #self.assertEqual(response.redirectchain,[('http://testserver/accounts/register/complete',302),
-        #                                         ('post_detail',304)])
-        #self.assertEqual(response.templates, 'profilesearch/post_edit.html')
-    
+        self.assertTemplateUsed(response,'registration/registration_form.html')
+        # Give valid registration information
+        response = self.c.post('/accounts/register/',{'username': 'newtest',
+                               'password1': '00000','password2':'00000'},follow=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response,'profilesearch/post_edit.html')    
     
         
         
