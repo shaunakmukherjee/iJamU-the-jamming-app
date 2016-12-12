@@ -27,22 +27,22 @@ class Test_Validations(TestCase):
     #REGISTER register()
     def test_register():
         # open the register page
-        response = self.c.post('/accounts/register/', follow=true)
+        response = self.c.head('/accounts/register/')
         
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.templates, 'registration/registration_form.html')
         
         # Complete registration
-        # Consider making a test fixture
-        response = self.c.post('/accounts/register/',{'Fname':'John',
-                               'Lname':'Doe','Techlevel':'1','Year':'1','Rating':'1',
-                               'Bio':'test is life','Instruments':'Guitar',
-                               'Genre':'Rock'},follow=true)
+        response = self.c.post('/accounts/register/',{'username': 'newtest',
+                               'password': '55555'},follow=true)
+        # test for invalid registration
                 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.redirectchain,[('http://testserver/accounts/register/complete',302),
-                                                 ('post_detail'),302])
-        self.assertEqual(response.templates, 'profilesearch/profile.html')
+                                                 ('post_detail',304)])
+        self.assertEqual(response.templates, 'profilesearch/post_edit.html')
+    
+    
         
         
         
