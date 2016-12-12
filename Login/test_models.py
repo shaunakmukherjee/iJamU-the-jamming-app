@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 
 # imports for testing the model
-from /Login/models import Userdetail,Search,Crequest
+from .models import Userdetail,Search,Crequest,Connection
 
 # test the Userdetails model
 class UserdetailTest(TestCase):
@@ -57,7 +57,7 @@ class SearchTest(TestCase):
         self.assertEqual(s.__str__(), s.Criteria)
 
 # test the Connection model
-class ConnectionTest(self):
+class ConnectionTest(TestCase):
     
     # creates 2 test users
     def setUp(self):
@@ -77,7 +77,7 @@ class ConnectionTest(self):
     # test the other user and boolean default
 
 # test the connection request model
-class Crequest(self):
+class CrequestTest(TestCase):
     
     # creates 2 test users
     def setUp(self):

@@ -1,9 +1,9 @@
 # Enables use of dummy web browser
-from django.test import Testcase, Client
+from django.test import TestCase, Client
 from django.contrib.auth.models import User
 
 # imports of views
-from /Login import views
+from . import views
 
 # test views validations with HTTP
 class Test_Validations(TestCase):
@@ -16,16 +16,15 @@ class Test_Validations(TestCase):
     # LOGIN home()
     def test_login(self):
         # login using test user
-        response = self.c.post('login/',{'username': 'test', 'password': '12345'})
+        response = self.c.post('/login/',{'username': 'test', 'password': '12345'},follow=true)
         
         # test for login failures
         
         # find actual response code
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.templates, 'home.html')
+        self.assertEqual(response.redirectchain,[('http://testserver/login/home.html',302)])
         
     #REGISTER register()
-    def test_register():
+    def test_register(self):
         # open the register page
         response = self.c.head('/accounts/register/')
         

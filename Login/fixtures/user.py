@@ -1,6 +1,31 @@
-from django.contrib.auth.models import User
+# test users fixture
 
-# test user fixtures
-u1 = User.objects.create_user(username='test1',password='11111'}
-u2 = User.objects.create_user(username='test2',password='54321'}
-u3 = User.objects.create_user(username='test3',password='00000'}
+[
+    {
+        'model': "django.contrib.auth.models.User",
+        'pk': 1,
+        'fields': {
+            'username':'test1',
+            'password':'11111'
+        }
+    
+    },
+    {
+        'model': "django.contrib.auth.models.User",
+        'pk': 2,
+        'fields': {
+            'username':'test2',
+            'password':'12345'
+        }
+    
+    },
+    {
+        'model': "django.contrib.auth.models.User",
+        'pk': 3,
+        'fields': {
+            'username':'test3',
+            'password':'00000'
+        }
+    
+    },
+]
