@@ -53,8 +53,7 @@ def registration_complete(request):
     return render(request, 'profilesearch/post_edit.html', {'form': form})
         # MISSING redirect to registration_complete.html
 
-# I don't get what the first part is actually doin (Chi)
-# Update user details.
+# Update user details. (I don't know why you are using nickname...)
 def post_update(request):
     if request.method == "POST":
     	pseudov=str(request.user)
@@ -70,7 +69,7 @@ def post_update(request):
         form = PostForm(request.POST)
     return render(request, 'profilesearch/post_edit.html', {'form': form})
 
-# Create profile.
+# Create profile. updates directly if nickname = username
 def post_new(request):
     if request.method == "POST":
         form = PostForm(request.POST)
