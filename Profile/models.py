@@ -20,11 +20,10 @@ class Userdetail(models.Model):
   
 
     def __str__(self):
-        return str(self.Username)
+        return str(self.Lname)
 
 class Search(models.Model):
     Criteria = models.CharField(max_length=200)
-    
 
     def __str__(self):
         return self.Criteria

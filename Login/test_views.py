@@ -1,3 +1,5 @@
+#Login/test_views.py
+
 # Enables use of dummy web browser
 from django.test import TestCase, Client
 from django.contrib.auth.models import User
