@@ -21,7 +21,7 @@ class ConnectionTest(TestCase):
     def test_connection_creation(self):
         c = self.create_connection()
         self.assertTrue(isinstance(c, Connection))
-        self.assertEqual(c.__str__(), str(c.User1))
+        self.assertEqual(c.__str__(), str(c.User2))
     
     # test the other user and boolean default
 

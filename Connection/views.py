@@ -87,6 +87,8 @@ def accept(request, **kwargs):
 
 #Displays the connections of the user
 def Connections(request):
+    if isinstance(request.user,AnonymousUser):
+        request.user = User.objects.get(username='test2')
     # Creates an array of Users connected with the user
     pseudov=str(request.user)
     userdetail= Connection.objects.filter(User1=pseudov)

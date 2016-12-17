@@ -26,10 +26,19 @@ class Test_Connection(TestCase):
         self.assertEquals(response.context['userdetail'][0].__str__(),'test2')
         self.assertEquals(response.context['userdetail'][1].__str__(),'test3')
     
-    def test_reqsearch(self):
-        response = self.c.post('/requests/',{'pk':2})
+    #def test_reqsearch(self):
+    #    response = self.c.post('/requests/',{'key':'2'},'/')
+    #    self.assertEquals(response.status_code,200)
+    #    self.assertTemplateUsed(response,'requests/reqlist.html')
+    #    self.assertEquals(response.context['userdetail'][0].__str__(),'test2')
+    
+    def test_connections(self):
+        response = self.c.post('/connections/')
         self.assertEquals(response.status_code,200)
-        self.assertTemplateUsed(response,'requests/reqlist.html')
-        self.assertEquals(response.context['userdetail'][0].__str__(),'test2')
+        self.assertTemplateUsed(response,'connections/con.html')
+        self.assertEquals(response.context['userdetail'][0].__str__(),'test3')
     
-    
+    def test_messaging(self):
+        response = self.c.post('/messaging/')
+        self.assertEquals(response.status_code,200)
+        self.assertTemplateUsed(response,'messaging.html')

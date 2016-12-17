@@ -49,5 +49,22 @@
         },
         "model": "Profile.userdetail",
         "pk": 3
+    },
+    {
+        "fields": {
+                "Username":4,
+                "Fname":"Shaunak",
+                "Lname":"Mukherjee",
+                "Nickname":"test4",
+                "Techlevel":"2",
+                "Year":"2",
+                "Rating":"4",
+                "Bio":"Front_End!",
+                "Address":"11 st pkwy",
+                "Instruments":"Violin",
+                "Genre":"Classical"
+        },
+        "model": "Profile.userdetail",
+        "pk": 4
     }
 ]

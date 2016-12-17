@@ -9,7 +9,7 @@ class Connection(models.Model):
     Endorsed = models.BooleanField(default = "False")
 
     def __str__(self):
-        return str(self.User1)
+        return str(self.User2)
 
 class Crequest(models.Model):
     User1 = models.CharField(max_length=50)
