@@ -4,7 +4,7 @@
                 "Username":1,
                 "Fname":"John",
                 "Lname":"Doe",
-                "Nickname":"JD",
+                "Nickname":"test1",
                 "Techlevel":"1",
                 "Year":"1",
                 "Rating":"1",
@@ -13,7 +13,7 @@
                 "Instruments":"Guitar",
                 "Genre":"Rock"
         },
-        "model": "Login.userdetail",
+        "model": "Profile.userdetail",
         "pk": 1
     },
     {
@@ -21,7 +21,7 @@
                 "Username":2,
                 "Fname":"Jane",
                 "Lname":"Doe",
-                "Nickname":"JayD",
+                "Nickname":"test2",
                 "Techlevel":"2",
                 "Year":"2",
                 "Rating":"2",
@@ -30,7 +30,7 @@
                 "Instruments":"Violin",
                 "Genre":"Classical"
         },
-        "model": "Login.userdetail",
+        "model": "Profile.userdetail",
         "pk": 2
     },
     {
@@ -38,7 +38,7 @@
                 "Username":3,
                 "Fname":"Chi",
                 "Lname":"Shin",
-                "Nickname":"MagicCarpet",
+                "Nickname":"test3",
                 "Techlevel":"3",
                 "Year":"3",
                 "Rating":"3",
@@ -47,7 +47,24 @@
                 "Instruments":"Guitar",
                 "Genre":"Acoustic"
         },
-        "model": "Login.userdetail",
+        "model": "Profile.userdetail",
         "pk": 3
+    },
+    {
+        "fields": {
+                "Username":4,
+                "Fname":"Shaunak",
+                "Lname":"Mukherjee",
+                "Nickname":"test4",
+                "Techlevel":"2",
+                "Year":"2",
+                "Rating":"4",
+                "Bio":"Front_End!",
+                "Address":"11 st pkwy",
+                "Instruments":"Violin",
+                "Genre":"Classical"
+        },
+        "model": "Profile.userdetail",
+        "pk": 4
     }
 ]

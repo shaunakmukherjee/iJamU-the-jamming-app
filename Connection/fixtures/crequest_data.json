@@ -1,0 +1,20 @@
+[
+    {
+        "fields": {
+                "User1":"test1",
+                "User2":"test2",
+                "Endorsed":"False"
+        },
+        "model": "Connection.Crequest",
+        "pk": 1
+    },
+    {
+        "fields": {
+                "User1":"test1",
+                "User2":"test3",
+                "Endorsed":"False"
+        },
+        "model": "Connection.Crequest",
+        "pk": 2
+    }
+]

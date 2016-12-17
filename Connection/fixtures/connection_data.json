@@ -1,0 +1,11 @@
+[
+    {
+        "fields": {
+                "User1":"test2",
+                "User2":"test3",
+                "Endorsed":"False"
+        },
+        "model": "Connection.Connection",
+        "pk": 1
+    }
+]

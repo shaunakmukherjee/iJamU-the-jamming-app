@@ -1,8 +1,10 @@
+#Profile/test_models.py
+
 from django.test import TestCase
 from django.contrib.auth.models import User
 
 # imports for testing the model
-from .models import Userdetail,Search,Crequest,Connection
+from .models import Userdetail,Search
 
 # test the Userdetails model
 class UserdetailTest(TestCase):
@@ -15,7 +17,6 @@ class UserdetailTest(TestCase):
     def create_userdetail(self,
                           Fname = "John",
                           Lname = "Doe",
-                          Nickname = "JD",
                           Techlevel = "3",
                           Year = "2",
                           Rating = "4",
@@ -26,7 +27,7 @@ class UserdetailTest(TestCase):
         return Userdetail.objects.create(Username = self.user,
                                           Fname = Fname,
                                           Lname = Lname,
-                                          Nickname = Nickname,
+                                          Nickname = str(self.user),
                                           Techlevel = Techlevel,
                                           Year = Year,
                                           Rating = Rating,
@@ -40,9 +41,8 @@ class UserdetailTest(TestCase):
         u = self.create_userdetail()
         self.assertTrue(isinstance(u, Userdetail))
         self.assertEqual(u.__str__(), str(u.Username))
-    
-    # test the other users
-    
+        self.assertEqual(u.Nickname,str(self.user))
+
 # test the Search model
 class SearchTest(TestCase):
     
@@ -55,43 +55,3 @@ class SearchTest(TestCase):
         s = self.create_search()
         self.assertTrue(isinstance(s, Search))
         self.assertEqual(s.__str__(), s.Criteria)
-
-# test the Connection model
-class ConnectionTest(TestCase):
-    
-    # creates 2 test users
-    def setUp(self):
-        self.user1 = User.objects.create_user(username='usertest1', password='12345')
-        self.user2 = User.objects.create_user(username='usertest2', password='54321')
-    
-    # creates a test connection
-    def create_connection(self):
-        return Connection.objects.create(User1=self.user1,User2=self.user2)
-        
-    # tests whether the connection was created and checks the __str__ method
-    def test_connection_creation(self):
-        c = self.create_connection()
-        self.assertTrue(isinstance(c, Connection))
-        self.assertEqual(c.__str__(), str(c.User1))
-    
-    # test the other user and boolean default
-
-# test the connection request model
-class CrequestTest(TestCase):
-    
-    # creates 2 test users
-    def setUp(self):
-        self.user1 = User.objects.create_user(username='usertest1', password='12345')
-        self.user2 = User.objects.create_user(username='usertest2', password='54321')
-    
-    # creates a connection request
-    def create_Crequest(self):
-        return Crequest.objects.create(User1=self.user1,User2=self.user2)
-        
-    # tests whether the request was created and checks the __str__ method
-    def test_connection_creation(self):
-        cr = self.create_Crequest()
-        self.assertTrue(isinstance(cr, Crequest))
-        self.assertEqual(cr.__str__(), str(cr.User1))
-    
-    # test the other user and boolean default
