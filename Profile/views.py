@@ -1,13 +1,16 @@
 #Profile/views.py
+
+from django.contrib.auth.models import User
 from django.shortcuts import render
 from .models import Userdetail
 from .forms import SearchForm,PostForm
 from django.shortcuts import redirect
-from django.db.models import Q
 from django.shortcuts import render_to_response
 from django.core.context_processors import csrf 
 from django.http import HttpResponseRedirect
 from django.conf import settings
+from django.shortcuts import get_object_or_404
+from django.db.models import Q
 
 # Update user details. (I don't know why you are using nickname...)
 def post_update(request):
@@ -25,19 +28,24 @@ def post_update(request):
         form = PostForm(request.POST)
     return render(request, 'profilesearch/post_edit.html', {'form': form})
 
-# Create profile. updates directly if nickname = username
+# Create profile. Right now it creates an empty profile
 def post_new(request):
-    if request.method == "POST":
-        form = PostForm(request.POST)
-        if form.is_valid():
-            post = form.save(commit=True)
-            post.username=request.user
-            post.Nickname=str(post.Username)
-            post.save()
-            return redirect('post_detail', pk=post.pk)
-    else:
-        form = PostForm(request.POST)
-    return render(request, 'profilesearch/post_edit.html', {'form': form})
+    form = PostForm(request.POST)
+    #if isInstance(request.user,AnonymousUser):
+    k=Userdetail.objects.create(Username=request.user,Fname='',Lname='',
+                                Nickname=str(request.user),
+                                Techlevel=0,Year=0,Rating=0,Bio='',Genre='',Address='',
+                                Instruments='')
+    k.save()
+    form = PostForm(request.POST or None,instance = k)
+    if form.is_valid():
+        post = form.save(commit=True)
+        post.username=request.user
+        # Nickname is string representation of User
+        post.Nickname=str(post.Username)
+        post.save()
+        return redirect('post_detail', pk=post.pk)
+    return render(request, 'registration/registration_complete.html', {'form': form})
 
 
 # Returns the details of a particular user.

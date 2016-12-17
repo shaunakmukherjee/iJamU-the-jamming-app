@@ -5,7 +5,7 @@ from . import views
 
 urlpatterns = [
 # URLs for profile and search views
-    url(r'^add/$', views.post_new, name='Post_new'),
+    url(r'^add/$', views.post_new, name='post_new'),
     url(r'^edit/$', views.post_update, name='Post_update'),
     url(r'^post/new/$', views.usr_list, name='usr_list'),
     url(r'^post/$', views.gsearch, name='search'),

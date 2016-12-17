@@ -1,13 +1,14 @@
 #Profile/forms.py
 
 from django import forms
-from .models import Userdetail
+from .models import Userdetail,Search
 
 class PostForm(forms.ModelForm):
 
     class Meta:
         model = Userdetail
-        fields = ('Fname','Lname', 'Techlevel','Year','Rating','Bio','Instruments','Genre',)
+        fields = ('Username','Fname','Lname', 'Techlevel','Year','Rating','Bio','Genre',
+                  'Address','Instruments',)
         
 class SearchForm(forms.ModelForm):
 

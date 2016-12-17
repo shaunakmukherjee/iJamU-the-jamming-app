@@ -15,7 +15,6 @@ class UserdetailTest(TestCase):
     def create_userdetail(self,
                           Fname = "John",
                           Lname = "Doe",
-                          Nickname = "JD",
                           Techlevel = "3",
                           Year = "2",
                           Rating = "4",
@@ -26,7 +25,7 @@ class UserdetailTest(TestCase):
         return Userdetail.objects.create(Username = self.user,
                                           Fname = Fname,
                                           Lname = Lname,
-                                          Nickname = Nickname,
+                                          Nickname = str(self.user),
                                           Techlevel = Techlevel,
                                           Year = Year,
                                           Rating = Rating,
@@ -39,8 +38,8 @@ class UserdetailTest(TestCase):
     def test_user_creation(self):
         u = self.create_userdetail()
         self.assertTrue(isinstance(u, Userdetail))
-        self.assertEqual(u.__str__(), str(u.Lname))
-        self.assertEqual(str(u.Username),str(self.user))
+        self.assertEqual(u.__str__(), str(u.Username))
+        self.assertEqual(u.Nickname,str(self.user))
 
 # test the Search model
 class SearchTest(TestCase):
