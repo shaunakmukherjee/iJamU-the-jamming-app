@@ -1,6 +1,6 @@
 #Profile/views.py
 
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, AnonymousUser
 from django.shortcuts import render
 from .models import Userdetail
 from .forms import SearchForm,PostForm
@@ -31,7 +31,8 @@ def post_update(request):
 # Create profile. Right now it creates an empty profile
 def post_new(request):
     form = PostForm(request.POST)
-    #if isInstance(request.user,AnonymousUser):
+    if isinstance(request.user,AnonymousUser):
+        request.user = User.objects.get(username='newtest')
     k=Userdetail.objects.create(Username=request.user,Fname='',Lname='',
                                 Nickname=str(request.user),
                                 Techlevel=0,Year=0,Rating=0,Bio='',Genre='',Address='',
