@@ -7,7 +7,7 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Userdetail
-        fields = ('Username','Fname','Lname', 'Techlevel','Year','Rating','Bio','Genre',
+        fields = ('Fname','Lname', 'Techlevel','Year','Rating','Bio','Genre',
                   'Address','Instruments',)
         
 class SearchForm(forms.ModelForm):
