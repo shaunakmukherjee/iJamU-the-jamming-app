@@ -131,7 +131,7 @@ def Endorsements (request):
         request.user = User.objects.get(username='test2')
     # Creates an array of Users connected with the user
     pseudov=str(request.user)
-    userdetail= Connection.objects.filter(User1=pseudov)
+    userdetail= Endorsement.objects.filter(User1=pseudov)
     # Renders the list of connected users
     return render(request, 'endorse.html', {'userdetail':userdetail})
  
