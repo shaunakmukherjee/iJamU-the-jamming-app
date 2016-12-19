@@ -17,6 +17,9 @@ urlpatterns = [
 #URLs for endorsements.
     url(r'^endorsements/$', views.Endorsements, name='endorsements'),
     url(r'^endsearch/(?P<key>.*)/$', views.endsearch, name='endsearch'),
+    url(r'^endorse_new/(?P<key>.*)/$', views.endorse_new, name='endorse_new'),
+    url(r'^endorse_done/$',views.endorse_done, name='endorse_done'),
+
 #URLs for messaging.
 	url(r'^messaging/$',views.Messaging, name='messaging'),
 	url(r'^email/$',views.Email,name='email'),
