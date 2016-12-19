@@ -30,10 +30,11 @@ class Endorsement(models.Model):
 
 class Endorsedetails(models.Model):
     Username = models.ForeignKey(User,unique=True)
+    Nickname=models.CharField(max_length=25)
     Techlevel=models.DecimalField(max_digits=1,decimal_places=0,default=1)
     Rating=models.DecimalField(max_digits=1,decimal_places=0)
     Comments=models.TextField(max_length=300,blank=True)
-    Nickname=models.CharField(max_length=25)
+    
 
     def __str__(self):
         return str(self.Username)
