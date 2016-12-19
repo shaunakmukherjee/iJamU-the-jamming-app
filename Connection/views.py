@@ -96,7 +96,7 @@ def Connections(request):
     return render(request, 'connections/con.html', {'userdetail':userdetail})
 
 
-# Displays userdetails of a user with option of messaging or deleting the contact.
+# Displays userdetails of a user with option of messaging, endorsing or deleting the contact.
 def consearch(request, **kwargs):
     # Get username of the user.
     pseudov=str(request.user)
@@ -123,7 +123,31 @@ def deleteconnection(request, **kwargs):
     k.delete()
     return render(request, 'actions/deleteconnection.html')
 
+#ENDORSEMENTS.
 
+#displays the connections of the person, required to endorse.
+def Endorsements (request):
+    if isinstance(request.user,AnonymousUser):
+        request.user = User.objects.get(username='test2')
+    # Creates an array of Users connected with the user
+    pseudov=str(request.user)
+    userdetail= Connection.objects.filter(User1=pseudov)
+    # Renders the list of connected users
+    return render(request, 'endorse.html', {'userdetail':userdetail})
+ 
+# Displays userdetails of a user with option of endorsing.
+def endsearch(request, **kwargs):
+    # Get username of the user.
+    pseudov=str(request.user)
+    for key, value in kwargs.iteritems():
+        s=value;
+    # Get the users profile.
+    userdetail= Userdetail.objects.filter(Q(Nickname=s)).order_by('Rating')
+    # Render Users details.
+    return render(request, 'endlist.html', {'userdetail':userdetail})
+
+
+	
 #MESSAGING.
 
 #Displays Messaging
