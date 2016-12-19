@@ -2,7 +2,8 @@
 
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from .models import Connection,Crequest
+from .models import Connection,Crequest, Endorsement, Endorsedetails
+from .forms import EndorseForm
 # import Userdetail models from Profile app
 from Profile.models import Userdetail
 from django.contrib.auth.models import User,AnonymousUser
@@ -131,7 +132,7 @@ def Endorsements (request):
         request.user = User.objects.get(username='test2')
     # Creates an array of Users connected with the user
     pseudov=str(request.user)
-    userdetail= Endorsement.objects.filter(User1=pseudov)
+    userdetail= Connection.objects.filter(User1=pseudov)
     # Renders the list of connected users
     return render(request, 'endorse.html', {'userdetail':userdetail})
  
@@ -146,8 +147,27 @@ def endsearch(request, **kwargs):
     # Render Users details.
     return render(request, 'endlist.html', {'userdetail':userdetail})
 
+# Fill out endorsing fields.
+def endorse_new(request, **kwargs):
+    form = EndorseForm(request.POST)
+    if isinstance(request.user,AnonymousUser):
+        request.user = User.objects.get(username='newtest')
+    #k=Endorsedetails.objects.create(Username=request.user,Nickname=str(request.user),Techlevel=0,Rating=0,Comments='')
+    #k.save()
+    form = EndorseForm(request.POST)
+    if form.is_valid():
+        post = form.save(commit=True)
+        post.username=request.user
+        # Nickname is string representation of User
+        post.Nickname=str(post.Username)
+        post.save()
+        return redirect('endorse_done')
+    return render(request, 'endorsement_complete.html', {'form': form})	
 
-	
+def endorse_done(request):
+    return render(request,'done.html');
+
+
 #MESSAGING.
 
 #Displays Messaging
