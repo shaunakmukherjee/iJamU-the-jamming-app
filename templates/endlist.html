@@ -30,7 +30,7 @@
         
 
 Do you want to endorse this connection?
-<form action="{% url 'deleteconnection' post.Username %}" method="post">{% csrf_token %}
+<form action="{% url 'endorse_new' post.Username %}" method="post">{% csrf_token %}
     {{form.as_p}}
   <input type="submit" value="Endorse!" />
 </form>
