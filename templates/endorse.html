@@ -1,0 +1,30 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<html>
+    <head>
+        <title>iJamU - Endorsements</title>
+    </head>
+    <body>
+	<div class="container">
+    	<div class="row">
+        	<div class="jumbotron">
+            <h1>Endorsements : </h1>
+            <p></p>
+			<p></p>
+        	</div>
+    	</div>
+	</div>
+    		<h2><a href="/">Unsure? Go back to the home page!</a></h2>
+		<p> These are the connections you already have ! Click on them to endorse them!
+        {% for post in userdetail %}
+            <div>
+                <h1><a href="{% url 'endsearch' post.User2 %}">{{ post.User2 }}</a></h1>
+            </div>
+        {% endfor %}
+
+{% endblock %}
+    </body>
+</html>

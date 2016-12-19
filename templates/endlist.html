@@ -1,0 +1,40 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<html>
+    <head>
+        <title>iJamU - Endorsements</title>
+    </head>
+    <body>
+	<div class="container">
+    	<div class="row">
+        	<div class="jumbotron">
+            <h1>Endorsements: Detailed Profile </h1>
+            <p></p>
+			<p></p>
+        	</div>
+    	</div>
+	</div>
+        {% for post in userdetail %}
+            <div>
+                <p>Name : {{ post.Fname }}  {{ post.Lname }}</p>
+                <p>Nickname : {{ post.Nickname }}</p>
+               <p> Techlevel : {{ post.Techlevel }}</p>
+                <p>Genre : {{post.Genre}}</p>
+                <p>Instruments : {{ post.Instruments}}</p>
+                <p>Address : {{ post.Address}}</p>
+                <p> Bio : {{ post.Bio|linebreaksbr }}</p>
+            </div>
+        
+
+Do you want to endorse this connection?
+<form action="{% url 'deleteconnection' post.Username %}" method="post">{% csrf_token %}
+    {{form.as_p}}
+  <input type="submit" value="Endorse!" />
+</form>
+      {% endfor %}
+{% endblock %}
+    </body>
+</html>
