@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 import operator
 
 # m number of endorsements to be taken in to account in calculation
-m = 20
+m = 5
 
 # the algo function returns a technical level and rating 
 # according to a list of endorsements
