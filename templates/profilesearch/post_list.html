@@ -21,7 +21,8 @@
 		<p> Based on your criteria, we have the following users most suited to working with you. Feel free to click their links, to see their full profile! 
         {% for post in userdetail %}
             <div>
-                <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.Username }}</a></h1>
+                <h1>Profile Details : <a href="{% url 'post_detail' pk=post.pk %}">{{ post.Username }}</a></h1>
+                <h5>Profile Endorsements : <a href="{% url 'endo_list' post.Nickname %}">{{ post.Username }}</a></h5>
                 <p>{{ post.Fname }}  {{ post.Lname }}</p>
                 <p>{{ post.Bio|linebreaksbr }}</p>
             </div>
