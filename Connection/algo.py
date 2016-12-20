@@ -28,6 +28,7 @@ def rating(end):
         beg = True
         for e in end:
             t_r.append(e.Techlevel)
+            print(t_r)
             o_r.append(e.Rating)
     else:
         for i in range(n_e - m, n_e):
@@ -58,11 +59,11 @@ def ranking(udlist):
     yrs_prof = 5
     
     # factors (weights for the technical level: ft, rating: fo)
-    ft = 1;
-    fo = 2;
+    ft = 1
+    fo = 2
     # factors that determine weight (out of) for yrs_exp and endorsements
-    fy = 2;
-    fe = 2;
+    fy = 2
+    fe = 2
     
     ratedlist = dict()
     
@@ -83,7 +84,7 @@ def ranking(udlist):
         # if user has longer years of experience than the minimum required proficiency,
         # additional endorsements are weighted down
         if yrs_exp > yrs_prof:
-            yf = yr_prof + (yrs_exp - yrs_prof)*.5
+            yf = yrs_prof + (yrs_exp - yrs_prof)
         else:
             yf = yrs_exp
         

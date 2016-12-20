@@ -4,7 +4,7 @@ from django.contrib.auth.models import User, AnonymousUser
 from django.contrib.auth import get_user
 from django.shortcuts import render
 from .models import Userdetail
-from Connection.algo import ranking
+from Connection.algo import ranking,rating
 from .forms import SearchForm,PostForm
 from django.shortcuts import redirect
 from django.shortcuts import render_to_response
@@ -121,6 +121,7 @@ def ksearch(request, **kwargs):
         dictlist.append(temp)
     # Renders the list of users to be displayed
     #dictlist=udlistsorted[0].items()
+    dictlist.reverse()
     return render(request, 'profilesearch/post_list.html', {'userdetail':dictlist})
 
 
