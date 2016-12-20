@@ -31,4 +31,4 @@ def register(request):
     return render_to_response('registration/registration_form.html', token)
 
 def registration_complete(request):
-    return render(request, 'home.html')
+    return render(request, 'login.html')
