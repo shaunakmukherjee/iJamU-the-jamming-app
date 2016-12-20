@@ -2,8 +2,10 @@
 
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from .models import Connection,Crequest, Endorsement, Endorsedetails
+from .models import Connection,Crequest, Endorsedetails
+from Profile.models import Userdetail
 from .forms import EndorseForm
+from algo import rating
 # import Userdetail models from Profile app
 from Profile.models import Userdetail
 from django.contrib.auth.models import User,AnonymousUser
@@ -46,10 +48,14 @@ def makereq(request, **kwargs):
     for key, value in kwargs.iteritems():
         s=value;
     # Create the request object in the database.
-    k=Crequest(User1=s,User2=pseudov)
+    l=Connection.objects.filter(User1=pseudov).filter(User2=s).count()
+    if l==0 :
+        k=Crequest(User1=s,User2=pseudov)
     # Store in the database.
-    k.save()
-    return render(request, 'actions/sent.html')
+        k.save()
+        return render_to_response('actions/sent.html',{"message":"Request sent"})
+    return render_to_response('actions/sent.html',{"message":"You are already connected. Request won't be sent"});
+    
 
 # Delete the request from the database after the request has been either accepted or declined.
 def delreq(request, **kwargs):
@@ -83,6 +89,16 @@ def accept(request, **kwargs):
     return render(request, 'actions/accept.html')
 
 
+def endo(request):
+    userdetail= Endorsedetails.objects.filter(Nickname=str(request.user))
+    return render(request, 'endo.html', {'userdetail':userdetail})
+
+def endo_list(request,**kwargs):
+    for key, value in kwargs.iteritems():
+        s=value;
+    userdetail= Endorsedetails.objects.filter(Nickname=s)
+    return render(request, 'endo.html', {'userdetail':userdetail})
+    
 
 #CONNECTIONS.
 
@@ -128,8 +144,6 @@ def deleteconnection(request, **kwargs):
 
 #displays the connections of the person, required to endorse.
 def Endorsements (request):
-    if isinstance(request.user,AnonymousUser):
-        request.user = User.objects.get(username='test2')
     # Creates an array of Users connected with the user
     pseudov=str(request.user)
     userdetail= Connection.objects.filter(User1=pseudov)
@@ -149,24 +163,37 @@ def endsearch(request, **kwargs):
 
 # Fill out endorsing fields.
 def endorse_new(request, **kwargs):
-    form = EndorseForm(request.POST)
-    if isinstance(request.user,AnonymousUser):
-        request.user = User.objects.get(username='newtest')
-    #k=Endorsedetails.objects.create(Username=request.user,Nickname=str(request.user),Techlevel=0,Rating=0,Comments='')
-    #k.save()
+    for key, value in kwargs.iteritems():
+        s=value;
     form = EndorseForm(request.POST)
     if form.is_valid():
-        post = form.save(commit=True)
-        post.username=request.user
+        post = form.save(commit=False)
+        post.Username=str(request.user)
         # Nickname is string representation of User
-        post.Nickname=str(post.Username)
+        post.Nickname=str(s)
         post.save()
         return redirect('endorse_done')
+        return redirect('calculate')
     return render(request, 'endorsement_complete.html', {'form': form})	
 
 def endorse_done(request):
     return render(request,'done.html');
 
+def calculate(request,**kwargs):
+    for key, value in kwargs.iteritems():
+        s=value;
+    #Compares the value with the nickname of the particular endorser/endorsee
+    k=Endorsedetails.objects.filter(Q(Nickname=s))
+    Userdetail.Techlevel, Userdetail.Rating=rating(k);
+    #Saves the technical level and the overall rating
+    Userdetail.Techlevel.save()
+    Userdetail.Rating.save()
+    user_details=[]
+    for i in range(10):
+        user_details.append(Userdetails.objects(i))
+   #storing it inside the list
+	
+    
 
 #MESSAGING.
 

@@ -18,9 +18,11 @@ urlpatterns = [
     url(r'^endorsements/$', views.Endorsements, name='endorsements'),
     url(r'^endsearch/(?P<key>.*)/$', views.endsearch, name='endsearch'),
     url(r'^endorse_new/(?P<key>.*)/$', views.endorse_new, name='endorse_new'),
-    url(r'^endorse_done/$',views.endorse_done, name='endorse_done'),
-
+	url(r'^endorse_done/$',views.endorse_done, name='endorse_done'),
+    url(r'^calculate/$',views.calculate, name='calculate'),
 #URLs for messaging.
 	url(r'^messaging/$',views.Messaging, name='messaging'),
 	url(r'^email/$',views.Email,name='email'),
+    url(r'^endo/$', views.endo, name='endo'),
+    url(r'^endo_list/(?P<key>.*)/$', views.endo_list, name='endo_list'),
 ]
