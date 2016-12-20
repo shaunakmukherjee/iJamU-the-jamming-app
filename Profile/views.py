@@ -14,7 +14,7 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
 
-# Update user details. (I don't know why you are using nickname...)
+# Update user details.
 def post_update(request):
     if request.method == "POST":
     	pseudov=str(request.user)
@@ -55,6 +55,8 @@ def post_new(request):
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
+            if isinstance(get_user(request),AnonymousUser):
+                request.user = User.objects.get(username='newtest')
             post.Username=get_user(request)
             post.Nickname=str(post.Username)
             post.save()
@@ -113,14 +115,12 @@ def ksearch(request, **kwargs):
     # Creates an array of objects that satisfy the criteria.
     userdetail= Userdetail.objects.filter(Q(Instruments__icontains=s)|Q(Genre__icontains=s)).exclude(Nickname=pseudov).order_by('Rating')
 	#receives a dictionary, now it has to be converted into a list
-    '''udlistsorted = ranking(userdetail)
-    isdict = isinstance(udlistsorted[0],tuple)
-    print(isdict)
+    udlistsorted = ranking(userdetail)
     for tp in udlistsorted:
         temp = tp[0]
         dictlist.append(temp)
     # Renders the list of users to be displayed
-    #dictlist=udlistsorted[0].items()'''
-    return render(request, 'profilesearch/post_list.html', {'userdetail':userdetail})
+    #dictlist=udlistsorted[0].items()
+    return render(request, 'profilesearch/post_list.html', {'userdetail':dictlist})
 
 

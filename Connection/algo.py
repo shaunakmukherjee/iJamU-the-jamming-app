@@ -27,13 +27,13 @@ def rating(end):
     if n_e < m:
         beg = True
         for e in end:
-            t_r.append(e[0])
-            o_r.append(e[1])
+            t_r.append(e.Techlevel)
+            o_r.append(e.Rating)
     else:
         for i in range(n_e - m, n_e):
             e = end[i]
-            t_r.append(e[0])
-            o_r.append(e[1])
+            t_r.append(e.Techlevel)
+            o_r.append(e.Rating)
     
     # add the ratings for sum
     tlevel = 0
@@ -101,8 +101,8 @@ def ranking(udlist):
         # Add user to dictionary as key with value R
         ratedlist[ud] = R
        
-        # return a sorted tuple according to the value (R) of rated list
-        return sorted(ratedlist.items(), key=operator.itemgetter(1))
+    # return a sorted tuple according to the value (R) of rated list
+    return sorted(ratedlist.items(), key=operator.itemgetter(1))
 
 
 

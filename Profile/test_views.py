@@ -34,8 +34,8 @@ class Test_Profile(TestCase):
        
     def test_profile_creation(self):
         response = self.c.post('/add/',{'Fname':'Greg',
-                               'Lname':'House', 'Techlevel':5,'Year':15,'Rating':1,
-                               'Bio':'Everbody Lies','Genre':'Jazz','Address':'Princeton,NJ',
+                               'Lname':'House','Year':15, 'Bio':'Everbody Lies',
+                               'Genre':'Jazz','Address':'Princeton,NJ',
                                'Instruments':'Piano'},follow=True)
         self.assertEqual(response.status_code, 200)
         #self.assertTemplateUsed(response,'profilesearch/post_detail.html')
