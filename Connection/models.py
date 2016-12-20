@@ -20,16 +20,8 @@ class Crequest(models.Model):
     def __str__(self):
         return str(self.User2)
 
-class Endorsement(models.Model):
-    User1 = models.CharField(max_length=50)
-    User2 = models.CharField(max_length=50)
-    Endorsed = models.BooleanField(default = "True")
-	
-    def _str_(self):
-	    return str(self.User2)
-
 class Endorsedetails(models.Model):
-    Username = models.ForeignKey(User,unique=True)
+    Username = models.CharField(max_length=25)
     Nickname=models.CharField(max_length=25)
     Techlevel=models.DecimalField(max_digits=1,decimal_places=0,default=1)
     Rating=models.DecimalField(max_digits=1,decimal_places=0)
@@ -37,4 +29,5 @@ class Endorsedetails(models.Model):
     
 
     def __str__(self):
-        return str(self.Username)
+        return str(self.Nickname)
+
