@@ -11,7 +11,7 @@ class Userdetail(models.Model):
     Nickname=models.CharField(max_length=25)
     Techlevel=models.DecimalField(max_digits=1,decimal_places=0,default=1)
     Year=models.DecimalField(max_digits=2,decimal_places=0)
-    Rating=models.DecimalField(max_digits=1,decimal_places=0)
+    Rating=models.DecimalField(max_digits=1,decimal_places=0,default=1)
     Bio=models.TextField(max_length=300,blank=True)
     Genre=models.TextField(max_length=300,blank=True)
     Address=models.TextField(max_length=300)

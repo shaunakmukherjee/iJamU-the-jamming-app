@@ -1,8 +1,10 @@
 #Profile/views.py
 
 from django.contrib.auth.models import User, AnonymousUser
+from django.contrib.auth import get_user
 from django.shortcuts import render
 from .models import Userdetail
+from Connection.algo import ranking
 from .forms import SearchForm,PostForm
 from django.shortcuts import redirect
 from django.shortcuts import render_to_response
@@ -29,13 +31,13 @@ def post_update(request):
     return render(request, 'profilesearch/post_edit.html', {'form': form})
 
 # Create profile. Right now it creates an empty profile
-def post_new(request):
+'''def post_new(request):
     form = PostForm(request.POST)
     if isinstance(request.user,AnonymousUser):
         request.user = User.objects.get(username='newtest')
     k=Userdetail.objects.create(Username=request.user,Fname='',Lname='',
                                 Nickname=str(request.user),
-                                Techlevel=0,Year=0,Rating=0,Bio='',Genre='',Address='',
+                                Techlevel=0,Year=0,Rating=0,Bio='',Genre='',Address='1',
                                 Instruments='')
     k.save()
     form = PostForm(request.POST or None,instance = k)
@@ -46,7 +48,21 @@ def post_new(request):
         post.Nickname=str(post.Username)
         post.save()
         return redirect('post_detail', pk=post.pk)
-    return render(request, 'registration/registration_complete.html', {'form': form})
+    return render(request, 'registration/registration_complete.html', {'form': form})'''
+
+def post_new(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.Username=get_user(request)
+            post.Nickname=str(post.Username)
+            post.save()
+            return redirect('profile', pk=post.pk)
+    else:
+        form = PostForm(request.POST)
+    return render(request, 'profilesearch/post_edit.html', {'form': form})
+
 
 
 # Returns the details of a particular user.
@@ -58,6 +74,10 @@ def post_detail(request, pk):
 #Displays the main profile with all details.
 def profile(request, pk):
     post = get_object_or_404(Userdetail, pk=pk)
+    return render(request, 'profilesearch/profile.html', {'post': post})
+
+def userprofile(request):
+    post = get_object_or_404(Userdetail, Username=request.user)
     return render(request, 'profilesearch/profile.html', {'post': post})
 
 
@@ -87,11 +107,20 @@ def gsearch(request):
 def ksearch(request, **kwargs):
     # Get the keyword for the search
     pseudov=str(request.user)
+    dictlist=[]
     for key, value in kwargs.iteritems():
         s=value;
     # Creates an array of objects that satisfy the criteria.
     userdetail= Userdetail.objects.filter(Q(Instruments__icontains=s)|Q(Genre__icontains=s)).exclude(Nickname=pseudov).order_by('Rating')
+	#receives a dictionary, now it has to be converted into a list
+    '''udlistsorted = ranking(userdetail)
+    isdict = isinstance(udlistsorted[0],tuple)
+    print(isdict)
+    for tp in udlistsorted:
+        temp = tp[0]
+        dictlist.append(temp)
     # Renders the list of users to be displayed
+    #dictlist=udlistsorted[0].items()'''
     return render(request, 'profilesearch/post_list.html', {'userdetail':userdetail})
 
 
