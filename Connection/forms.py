@@ -9,4 +9,6 @@ class EndorseForm(forms.ModelForm):
 
     class Meta:
         model = Endorsedetails
-        fields = ('Username','Nickname','Techlevel','Rating','Comments')
+        fields = ('Techlevel','Rating','Comments')
+
+        
