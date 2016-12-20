@@ -4,7 +4,7 @@ from django.contrib.auth.models import User, AnonymousUser
 from django.contrib.auth import get_user
 from django.shortcuts import render
 from .models import Userdetail
-from Connection.algo import ranking,rating
+from Connection.algo import ranking
 from .forms import SearchForm,PostForm
 from django.shortcuts import redirect
 from django.shortcuts import render_to_response
