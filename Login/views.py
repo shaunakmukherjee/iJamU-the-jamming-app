@@ -31,5 +31,4 @@ def register(request):
     return render_to_response('registration/registration_form.html', token)
 
 def registration_complete(request):
-    form = PostForm(request.POST)
-    return render(request, 'registration/registration_complete.html', {'form': form})
+    return render(request, 'home.html')
