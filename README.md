@@ -7,6 +7,14 @@
 2.     Rohit Ravoori     (@rohitravoori)
 3.     Shaunak Mukherjee (@shaunakmukherjee)
 
+### Notes on the Beta release (1.2)
+
+All bugs have been fixed and the app is complete. The algorithm has been integrated, and the results are reflected during the 'Search' and any other functions. 
+
+Things needed to be done to make this better, in the future would be :
+1. As mentioned in the external features, to implement the Google Maps API to seamlessly integrate the distance functionality.
+2. Making the algorithm a bit more optimal, it currently runs in O(n^2) time.
+3. Making a complete chatting app for seamless switching of real-time messages (as in Facebook, LinkedIn, etc.)
 
 ### Notes on the Alpha release (1.1)
 
