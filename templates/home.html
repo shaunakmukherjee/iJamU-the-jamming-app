@@ -5,14 +5,46 @@
 <div class="container">
     <div class="row">
         <div class="jumbotron">
-            <h1>iJamU</h1>
+			{% load static %}
+	<img src="{% static "logo.png" %}" style="width:600px;height:340px;"> 
+			<style>
+			 body{ 
+					background-image: url({% static "music.jpg" %});
+				 }
+			</style>
+			<p>
+			<p>
+			<p>
             <p>YOU'RE INSIDE iJamU! </p>
 			<p>Please access the various headings to your top right for each of our services ! </p>
+	<p>
+	<p>
+	    <form action="\add\">{% csrf_token %}
+    {{form.as_p}}
+Wait. New user? Add your profile using the button below. 
+  <input type="submit" value="Add your profile!"/>
+	</p>
+	<p>
+	<p>
 		 <form action="\edit\">{% csrf_token %}
     {{form.as_p}}
+I'll tell you what? Update your profile using the button below. Don't want them to not find you. 
   <input type="submit" value="Update your profile!"/>
-        </div>
+	</p>
+	<p>
+	<p>	
+	<p>
+	Click the links below to follow us :
+	<p>
+	<a href="https://www.facebook.com/rohit.ravoori">Rohit Ravoori </a>
+	<br>
+	<a href="https://www.facebook.com/tlscldud">Chi Young Shin </a>
+	<br>
+	<a href="https://www.facebook.com/shaun.ubercool">Shaunak Mukherjee </a>
+	</div>
     </div>
 </div>
-<a href="/add"> Add your profile here!
+
+<!-- <a href="/add"> Add your profile here! -->
+
 {% endblock %}

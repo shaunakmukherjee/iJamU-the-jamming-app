@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+    {% block title %}Updated profile {% endblock %}
+    {% block content %}
+
   <h1>{{ post.Nickname }}</h1>
   Name: {{ post.Fname }}
    {{ post.Lname }}
@@ -19,3 +23,4 @@ Years: {{ post.Year }}
 
 This is your updated profile. <a href="/"> Click here </a> to go back home!
 <form>
+{% endblock %}

@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+    {% block title %}Detailed Profile {% endblock %}
+    {% block content %}
+
   <h1>{{ post.Username }}</h1>
   Name: {{ post.Fname }}
    {{ post.Lname }}
@@ -21,3 +25,4 @@ Do you want to connect with this user?
     {{form.as_p}}
   <input type="submit" value="Yes. Connect me!" />
 <form>
+{% endblock %}

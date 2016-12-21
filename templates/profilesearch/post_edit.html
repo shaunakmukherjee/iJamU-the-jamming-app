@@ -1,5 +1,9 @@
-<h1>Profile</h1>
+{% extends "base.html" %}
+    {% block title %}Profile of the user {% endblock %}
+    {% block content %}
+	<h1>Profile</h1>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
         <button type="submit" value = " update"> Update </button>
     </form>
+	{% endblock %}
