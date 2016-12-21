@@ -17,15 +17,28 @@ from django.db.models import Q
 # Update user details.
 def post_update(request):
     if request.method == "POST":
-    	pseudov=str(request.user)
-        k=Userdetail.objects.get(Nickname=pseudov)
-        form = PostForm(request.POST or None,instance = k)
-        if form.is_valid():
-            post = form.save(commit=True)
-            post.username=request.user
-            post.Nickname=str(post.Username)
-            post.save()
-            return redirect('profile', pk=post.pk)
+        pseudov=str(request.user)
+        k=Userdetail.objects.filter(Nickname=pseudov).count()
+        if k>0:
+            k=Userdetail.objects.get(Nickname=pseudov)
+            form = PostForm(request.POST or None,instance = k)
+            if form.is_valid():
+                post = form.save(commit=True)
+                post.username=request.user
+                post.Nickname=str(post.Username)
+                post.save()
+                return redirect('profile', pk=post.pk)
+        else :
+            form = PostForm(request.POST)
+            if form.is_valid():
+                post = form.save(commit=False)
+                if isinstance(get_user(request),AnonymousUser):
+                    request.user = User.objects.get(username='newtest')
+                post.Username=get_user(request)
+                post.Nickname=str(post.Username)
+                post.save()
+                return redirect('profile', pk=post.pk)
+
     else:
         form = PostForm(request.POST)
     return render(request, 'profilesearch/post_edit.html', {'form': form})
@@ -49,7 +62,7 @@ def post_update(request):
         post.save()
         return redirect('post_detail', pk=post.pk)
     return render(request, 'registration/registration_complete.html', {'form': form})'''
-
+'''
 def post_new(request):
     if request.method == "POST":
         form = PostForm(request.POST)
@@ -65,7 +78,7 @@ def post_new(request):
         form = PostForm(request.POST)
     return render(request, 'profilesearch/post_edit.html', {'form': form})
 
-
+'''
 
 # Returns the details of a particular user.
 def post_detail(request, pk):
