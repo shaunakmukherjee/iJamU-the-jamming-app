@@ -172,21 +172,23 @@ def endorse_new(request, **kwargs):
         # Nickname is string representation of User
         post.Nickname=str(s)
         post.save()
+        calculate(s)
         return redirect('endorse_done')
-        return redirect('calculate',s)
     return render(request, 'endorsement_complete.html', {'form': form})	
 
 def endorse_done(request):
     return render(request,'done.html');
 
-def calculate(request,s):
+def calculate(s):
     #Compares the value with the nickname of the particular endorser/endorsee
+    print s 
     k=Endorsedetails.objects.filter(Q(Nickname=s))
     updated = rating(k)
-    Userdetail.Techlevel=updated[0]
-    Userdetail.Rating=updated[1]
+    m=Userdetail.objects.get(Nickname=s)
+    m.Techlevel=updated[0]
+    m.Rating=updated[1]
     #Saves the technical level and the overall rating
-    Userdetail.save()
+    m.save()
     user_details=[]
     for i in range(10):
         user_details.append(Userdetails.objects(i))
