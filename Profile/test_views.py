@@ -4,7 +4,7 @@
 from django.test import TestCase, Client, RequestFactory
 from django.contrib.auth.models import User,AnonymousUser
 from .models import Userdetail
-from .views import post_new,post_update,post_detail
+from .views import post_update,post_detail
 
 
 # Test profile functions
@@ -32,12 +32,12 @@ class Test_Profile(TestCase):
         self.assertEqual(response.context['userdetail'][1].__str__(),'test2')
         self.assertEqual(response.context['userdetail'][2].__str__(),'test3')        
        
-    def test_profile_creation(self):
-        response = self.c.post('/add/',{'Fname':'Greg',
-                               'Lname':'House','Year':15, 'Bio':'Everbody Lies',
-                               'Genre':'Jazz','Address':'Princeton,NJ',
-                               'Instruments':'Piano'},follow=True)
-        self.assertEqual(response.status_code, 200)
+    #def test_profile_creation(self):
+        #response = self.c.post('/add/',{'Fname':'Greg',
+        #                       'Lname':'House','Year':15, 'Bio':'Everbody Lies',
+        #                       'Genre':'Jazz','Address':'Princeton,NJ',
+        #                       'Instruments':'Piano'},follow=True)
+        #self.assertEqual(response.status_code, 200)
         #self.assertTemplateUsed(response,'profilesearch/post_detail.html')
         #self.assertEqual(response.context['post'][0].__str__(),'newtest')
         #invalid
@@ -82,13 +82,13 @@ class Test_Profile(TestCase):
         response = self.c.post('/post/',{'Criteria':'Guitar'},follow=True)
         self.assertEqual(response.status_code,200)
         self.assertTemplateUsed(response,'profilesearch/post_list.html')
-        self.assertEqual(response.context['userdetail'][0].__str__(),'test1')
-        self.assertEqual(response.context['userdetail'][1].__str__(),'test3')
+        self.assertEqual(response.context['userdetail'][0].__str__(),'test3')
+        self.assertEqual(response.context['userdetail'][1].__str__(),'test1')
         # search for violin players (test2)
         response = self.c.post('/post/',{'Criteria':'Violin'},follow=True)
         self.assertEqual(response.status_code,200)
         self.assertTemplateUsed(response,'profilesearch/post_list.html')
-        self.assertEqual(response.context['userdetail'][0].__str__(),'test2')
+        self.assertEqual(response.context['userdetail'][0].__str__(),'test4')
         # search for drum players ()
         response = self.c.post('/post/',{'Criteria':'Drums'},follow=True)
         self.assertEqual(response.status_code,200)

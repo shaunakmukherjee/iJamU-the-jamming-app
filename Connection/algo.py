@@ -49,7 +49,7 @@ def rating(end):
         tlevel = tlevel / m
         ovr = ovr / m
     
-    return [tlevel, ovr]
+    return [round(tlevel), round(ovr)]
 
 # given a list of userdetails, the function gives a ranking to each user and 
 # returns a sorted tuple (according to ranking)
@@ -59,8 +59,8 @@ def ranking(udlist):
     yrs_prof = 5
     
     # factors (weights for the technical level: ft, rating: fo)
-    ft = 1
-    fo = 2
+    ft = 2
+    fo = 1
     # factors that determine weight (out of) for yrs_exp and endorsements
     fy = 2
     fe = 2

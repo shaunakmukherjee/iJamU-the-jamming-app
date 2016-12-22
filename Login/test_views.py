@@ -67,7 +67,7 @@ class Test_Login_Signup(TestCase):
                                'password1': '00000','password2':'00000'},follow=True)
         self.assertEqual(response.status_code, 200)
         #self.assertTemplateUsed(response,'registration/registration_complete.html')
-        self.assertTemplateUsed(response,'pofilesearch/post_edit.html')
+        self.assertTemplateUsed(response,'login.html')
         # Check if the new user was registered
         self.c.logout()
         logged = self.c.login(username='newtest',password='00000')
