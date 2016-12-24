@@ -1,5 +1,5 @@
 # 2016-group-18
-# iJamU - Alpha release 
+# iJamU - The Jamming App 
 
 *Project members :* 
 
@@ -11,22 +11,23 @@
 
 All bugs have been fixed and the app is complete. The algorithm has been integrated, and the results are reflected during the 'Search' and any other functions. 
 
-Things needed to be done to make this better, in the future would be :
+### How to run this app 
 
-1. As mentioned in the external features, to implement the Google Maps API to seamlessly integrate the distance functionality.
-2. Making the algorithm a bit more optimal, it currently runs in O(n^2) time.
-3. Making a complete chatting app for seamless switching of real-time messages (as in Facebook, LinkedIn, etc.)
+1. Just unzip all of this or clone the repository. Then go on your Unix command line and type : 'python manage.py makemigrations'
+2. Then, 'python manage.py migrate'
+3. To run the app : 'python manage.py runserver (whatever port number you want)'
+4. Go to your browser and type 'localhost:(your port number)'
 
-### Notes on the Alpha release (1.1)
+VOILA. The app will work ! 
 
-The alpha build of the project is up and running.
-The Master file here contains the complete buildable code for the app, which consists of the entire front-end as well as back-end functionality. 
-It contains the following functionalities : 
+### Complete featues
+
+The complete app contains the following functionalities : 
 
 1. REGISTRATION for new users, followed by the ADDING of the DETAILS (filling in details of genre, instruments, bio, name, etc.)
 2. LOGIN for existing users (username and password) - _subject to validation_
 3. UPDATE PROFILE for updating details as and when required
-4. SEARCH to search for users based on the same instruments/genres - one can CONNECT to interesting users 
+4. SEARCH to search for users based on the same instruments/genres - one can CONNECT to interesting users _based on the non-CRUD algorithm designed by us_
 5. REQUESTS to see what requests have been sent to the aforementioned user, to either ACCEPT or REJECT them
 6. CONNECTIONS to manage connections (accepted requests) - to either view details or DELETE them
 7. MESSAGING to message the users via e-mail 
@@ -39,6 +40,9 @@ Also, **test cases** have been written for the backend:
  - Framework for the views has been written (test has not yet been implemented)
  - Travis test harness has been implemented
  - Below is a coverage report of currently available tests
+
+
+### PREVIOUS ITERATION WORKFLOW has been shown below for reference:
 
 ### Test Coverage
 ```
@@ -60,8 +64,6 @@ TOTAL                                                                           
 ```
 
 The Aux contains all the auxiliary, previous files used in the iterations preceding this. They've been kept for the sake of coverage.
-
-###PREVIOUS ITERATION WORKFLOW has been shown below for reference:
 
 ## Vision Statement/Overview
 >We will be attempting to build a service that will allow musicians to interact, collaborate and basically, produce music together. The whole concept of 'jamming' will be redefined, as users will be given the opportunity to view profiles of musicians in their area - who play different instruments (guitar, drums, keyboards, etc.), with varying skills in different genres - and connect with them to produce music together. Our app will enable users to either search for other musicians for a gig; search for bands to join; or simply look for like-minded individuals to play some music, relax and socialize through 'jamming'.
