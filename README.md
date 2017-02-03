@@ -1,11 +1,5 @@
-# 2016-group-18
 # iJamU - The Jamming App 
 
-*Project members :* 
-
-1.     Chi Young Shin    (@tlscldud)
-2.     Rohit Ravoori     (@rohitravoori)
-3.     Shaunak Mukherjee (@shaunakmukherjee)
 
 ### Notes on the Beta release (1.2)
 
