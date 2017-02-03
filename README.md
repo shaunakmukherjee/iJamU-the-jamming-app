@@ -33,31 +33,10 @@ Also, **test cases** have been written for the backend:
  - The models (database) test cases have been written.
  - Framework for the views has been written (test has not yet been implemented)
  - Travis test harness has been implemented
- - Below is a coverage report of currently available tests
 
 
 ### PREVIOUS ITERATION WORKFLOW has been shown below for reference:
 
-### Test Coverage
-```
-Jamming/__init__                                                                                                             0      0   100%   
-Jamming/settings                                                                                                            19      0   100%   
-Login/__init__                                                                                                               0      0   100%   
-Login/admin                                                                                                                  3      0   100%   
-Login/forms                                                                                                                 10      0   100%   
-Login/migrations/0001_initial                                                                                                8      0   100%   
-Login/migrations/0002_userdetail_address                                                                                     5      0   100%   
-Login/migrations/0003_search                                                                                                 5      0   100%   
-Login/migrations/__init__                                                                                                    0      0   100%   
-Login/models                                                                                                                20      0   100%   
-Login/test_script                                                                                                           24      2    92%   85-86
-Login/views                                                                                                                 46     28    39%   20, 23-35, 38, 42-43, 46-47, 50-58, 61-64
-manage                                                                                                                       6      0   100%   
-------------------------------------------------------------------------------------------------------------------------------------------------------
-TOTAL                                                                                                                    40205  24611    39% 
-```
-
-The Aux contains all the auxiliary, previous files used in the iterations preceding this. They've been kept for the sake of coverage.
 
 ## Vision Statement/Overview
 >We will be attempting to build a service that will allow musicians to interact, collaborate and basically, produce music together. The whole concept of 'jamming' will be redefined, as users will be given the opportunity to view profiles of musicians in their area - who play different instruments (guitar, drums, keyboards, etc.), with varying skills in different genres - and connect with them to produce music together. Our app will enable users to either search for other musicians for a gig; search for bands to join; or simply look for like-minded individuals to play some music, relax and socialize through 'jamming'.
